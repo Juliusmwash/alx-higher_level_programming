@@ -21,18 +21,6 @@ listint_t *insert_node_helper(listint_t **head, int number)
 		*head = tmp2;
 		return (tmp2);
 	}
-	/*else if ((*head)->n > number)
-	{
-		listint_t *tmp2;
-
-		tmp2 = malloc(sizeof(listint_t));
-		if (tmp2 == NULL)
-			return (NULL);
-		tmp2->n = number;
-		tmp2->next = *head;
-		*head = tmp2;
-		return (tmp2);
-	}*/
 	else if ((*head)->next == NULL)
 	{
 		listint_t *tmp2;
