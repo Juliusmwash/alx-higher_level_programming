@@ -49,7 +49,7 @@ listint_t *insert_node_helper(listint_t **head, int number, listint_t **tmp2)
 
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *tmp1, *tmp2;
+	listint_t *tmp1;
 
 	insert_node_helper(head, number, &tmp2);
 	if (tmp2 != NULL)
@@ -63,6 +63,8 @@ listint_t *insert_node(listint_t **head, int number)
 			tmp1 = tmp1->next;
 			if (tmp1->next  == NULL)
 			{
+				listint_t *tmp2;
+
 				tmp2 = malloc(sizeof(listint_t));
 				if (tmp2 == NULL)
 					return (NULL);
@@ -74,6 +76,8 @@ listint_t *insert_node(listint_t **head, int number)
 		}
 		else
 		{
+			listint_t *tmp2;
+
 			tmp2 = malloc(sizeof(listint_t));
 			if (tmp2 == NULL)
 				return (NULL);
