@@ -28,6 +28,75 @@ listint_t *insert_node(listint_t **head, int number);
 #endif /* LISTS_H */
 
 
+listint_t *insert_node_helper(listint_t **head, int number)
+{
+	listint_t *tmp1, *tmp2;
+
+	tmp1 = *head;
+	tmp2 = malloc(sizeof(listint_t));
+	if (tmp2 == NULL)
+		return (NULL);
+	tmp2->n = number;
+
+	if ((*head)->n > number)
+	{
+		tmp2->next = *head;
+		*head = tmp2;
+		return (tmp2);
+	}
+	else if ((*head)->next == NULL)
+	{
+		tmp2->next = NULL;
+		(*head)->next = tmp2;
+		return (tmp2);
+	}
+	else
+	{
+		free(tmp2);
+		tmp2 = NULL;
+	}
+	return (tmp2);
+}
+
+listint_t *insert_node(listint_t **head, int number)
+{
+	listint_t *tmp1, *tmp2;
+
+	tmp2 = insert_node_helper(head, number);
+	if (tmp2 != NULL)
+		return (tmp2);
+
+	tmp1 = *head;
+	while (tmp1 != NULL)
+	{
+		tmp2 = malloc(sizeof(listint_t));
+		if (tmp2 == NULL)
+			return (NULL);
+		tmp2->n = number;
+		if (tmp1->next->n < number)
+		{
+			tmp1 = tmp1->next;
+			if (tmp1->next  == NULL)
+			{
+				tmp2->next = NULL;
+				tmp1->next = tmp2;
+				return (tmp2);
+			}
+		}
+		else
+		{
+			tmp2->next = tmp1->next;
+			tmp1->next = tmp2;
+			return (tmp2);
+		}
+		free(tmp2);
+
+	}
+	return NULL;
+}
+
+
+/*
 listint_t *insert_node(listint_t **head, int number)
 {
 	listint_t *tmp1, *tmp2, *tmp3;
@@ -79,6 +148,7 @@ listint_t *insert_node(listint_t **head, int number)
 	}
 	return NULL;
 }
+*/
 
 /**
  * print_listint - prints all elements of a listint_t list
@@ -161,6 +231,7 @@ int main(void)
     listint_t *head;
 
     head = NULL;
+    add_nodeint_end(&head, -2);
     add_nodeint_end(&head, 0);
     add_nodeint_end(&head, 1);
     add_nodeint_end(&head, 2);
@@ -173,6 +244,7 @@ int main(void)
 
     printf("-----------------\n");
 
+    insert_node(&head, -3);
     insert_node(&head, 1025);
     insert_node(&head, 27);
     insert_node(&head, -1);
