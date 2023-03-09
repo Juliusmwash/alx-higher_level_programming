@@ -1,34 +1,90 @@
-#include "lists.h"
 
-/**
- * insert_node - Inserts a number into a sorted singly-linked list.
- * @head: A pointer the head of the linked list.
- * @number: The number to insert.
- *
- * Return: If the function fails - NULL.
- *         Otherwise - a pointer to the new node.
- */
+listint_t *insert_node_helper(listint_t **head, listint_t *tmp2)
+{
+	listint_t *tmp1;
+
+	tmp1 = *head;
+	tmp2 = malloc(sizeof(listint_t));
+	if (tmp2 == NULL)
+		return (NULL);
+	tmp2->n = number;
+
+	if ((*head)->n > number)
+	{
+		tmp2->next = *head;
+		*head = tmp2;
+		return (tmp2);
+	}
+	else if ((*head)->next == NULL)
+	{
+		tmp2->next = NULL;
+		(*head)->next = tmp2;
+		return (tmp2);
+	}
+	else
+	{
+		free(tmp2);
+		tmp2 = NULL;
+	}
+	return (tmp2);
+}
+
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *node = *head, *new;
+	listint_t *tmp1, *tmp2;
 
-	new = malloc(sizeof(listint_t));
-	if (new == NULL)
+	/*
+	tmp1 = *head;
+	tmp2 = malloc(sizeof(listint_t));
+	if (tmp2 == NULL)
 		return (NULL);
-	new->n = number;
+	tmp2->n = number;
 
-	if (node == NULL || node->n >= number)
+	if ((*head)->n > number)
 	{
-		new->next = node;
-		*head = new;
-		return (new);
+		tmp2->next = *head;
+		*head = tmp2;
+		return (tmp2);
 	}
+	else if ((*head)->next == NULL)
+	{
+		tmp2->next = NULL;
+		(*head)->next = tmp2;
+		return (tmp2);
+	}
+	else
+		free(tmp2);
+	*/
 
-	while (node && node->next && node->next->n < number)
-		node = node->next;
+	tmp2 = insert_node_helper(head, tmp2);
+	if (tmp2 != NULL)
+		return (tmp2);
 
-	new->next = node->next;
-	node->next = new;
+	tmp1 = *head;
+	while (tmp1 != NULL)
+	{
+		tmp2 = malloc(sizeof(listint_t));
+		if (tmp2 == NULL)
+			return (NULL);
+		tmp2->n = number;
+		if (tmp1->next->n < number)
+		{
+			tmp1 = tmp1->next;
+			if (tmp1->next  == NULL)
+			{
+				tmp2->next = NULL;
+				tmp1->next = tmp2;
+				return (tmp2);
+			}
+		}
+		else
+		{
+			tmp2->next = tmp1->next;
+			tmp1->next = tmp2;
+			return (tmp2);
+		}
+		free(tmp2);
 
-	return (new);
+	}
+	return NULL;
 }
