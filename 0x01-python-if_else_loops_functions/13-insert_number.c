@@ -61,7 +61,7 @@ listint_t *insert_node(listint_t **head, int number)
 
 	tmp1 = insert_node_helper(head, number);
 	if (tmp1 != NULL)
-		return (tmp2);
+		return (tmp1);
 
 	tmp1 = *head;
 	while (tmp1 != NULL)
