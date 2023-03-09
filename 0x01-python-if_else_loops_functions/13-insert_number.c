@@ -11,7 +11,6 @@ listint_t *insert_node_helper(listint_t **head, int number)
 {
 	listint_t *tmp2;
 
-	tmp1 = *head;
 	tmp2 = malloc(sizeof(listint_t));
 	if (tmp2 == NULL)
 		return (NULL);
