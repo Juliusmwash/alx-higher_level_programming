@@ -31,6 +31,5 @@ def add_tuple(tuple_a=(), tuple_b=()):
             else:
                 b1 = tuple_b[i]
             sum2 = a1 + b1
-
-            new_tuple = (sum2, sum1) 
-            return (new_tuple)
+    new_tuple = (sum2, sum1)
+    return (new_tuple)
