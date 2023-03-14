@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def print_matrix_integer(matrix=[[]]):
-    if isinstance(matrix, list):
+    """Print a matrix of integers."""
         for row in matrix:
             for j in range(0, len(row)):
                 if j != len(row) - 1:
