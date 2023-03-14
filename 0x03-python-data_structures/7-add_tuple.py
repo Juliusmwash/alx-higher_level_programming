@@ -2,7 +2,7 @@
 def add_tuple(tuple_a=(), tuple_b=()):
     a1 = 0
     b1 = 0
-    sum = 0
+    sum1 = 0
     sum2 = 0
 
     for i in range(2):
@@ -19,7 +19,7 @@ def add_tuple(tuple_a=(), tuple_b=()):
                 b1 = 0
             else:
                 b1 = tuple_b[i]
-            sum = a1 + b1
+            sum1 = a1 + b1
 
         else:
             if len(tuple_a) == 0:
@@ -31,5 +31,6 @@ def add_tuple(tuple_a=(), tuple_b=()):
             else:
                 b1 = tuple_b[i]
             sum2 = a1 + b1
-    new_tuple = (sum2, sum) 
-    return (new_tuple)
+
+            new_tuple = (sum2, sum1) 
+            return (new_tuple)
