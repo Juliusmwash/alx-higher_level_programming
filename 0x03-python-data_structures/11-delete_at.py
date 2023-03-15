@@ -9,4 +9,4 @@ def delete_at(my_list=[], idx=0):
         else:
             del my_list[idx]
             """my_list.remove(my_list[idx])"""
-        return my_list
+    return my_list
