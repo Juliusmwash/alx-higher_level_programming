@@ -1,29 +1,14 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    """Converts a roman numeral to an integer."""
-    if (not isinstance(roman_string, str) or
-            roman_string is None):
-        return (0)
-
-    roman_dict = {
-            "I": 1,
-            "V": 5,
-            "X": 10,
-            "L": 50,
-            "C": 100,
-            "D": 500,
-            "M": 1000
-    }
-    num = 0
-
-    for i in range(len(roman_string)):
-        if roman_dict.get(roman_string[i], 0) == 0:
-            return (0)
-
-        if (i != (len(roman_string) - 1) and
-                roman_dict[roman_string[i]] < roman_dict[roman_string[i + 1]]):
-                num += roman_dict[roman_string[i]] * -1
-
-        else:
-            num += roman_dict[roman_string[i]]
-    return (num)
+    roman_dict = {"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5, "VI": 6,
+                  "VII": 7, "VIII": 8, "IX": 9, "X": 10, "XI": 11, "XII": 12, "XIII": 13,
+                  "XIV": 14, "XV": 15, "XVI": 16, "XVII": 17, "XVIII": 18, "XIX": 19, "XX": 20, "XXI": 21,
+                  "XXII": 22, "XXIII": 23, "XXIV": 24, "XXX": 30, "XL": 40, "L": 50, "LX": 60,
+                  "LXX": 70, "LXXX": 80, "XC": 90, "C": 100, "CI": 101, "CII": 102, "CC": 200,
+                  "CCC": 300, "CD": 400, "D": 500, "DC": 600, "DCC": 700, "DCCC": 800, "CM": 900,
+                  "M": 1000, "MI": 1001, "MII": 1002, "MIII": 1003, "MCM": 1900, "MM": 2000,
+                  "MMI": 2001, "MMII": 2002, "MMC": 2100, "MMM": 3000, "MMMM": 4000, "V": 5000}
+    for i in roman_dict:
+        if i == roman_string:
+            return roman_dict.get(i)
+    return 0
