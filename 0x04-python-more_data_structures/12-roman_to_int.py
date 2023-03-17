@@ -5,7 +5,7 @@ def roman_to_int(roman_string):
     indx1 = 0
     indx2 = 0
     sum = 0
-    if roman_string == None or type(roman_string) != str:
+    if roman_string == None or isinstance(roman_string, type(str)) == False:
         return 0;
     count = len(roman_string)
     if count == 0:
@@ -32,3 +32,4 @@ def roman_to_int(roman_string):
             return 0;
         count -= 1
     return sum
+
