@@ -6,9 +6,10 @@ def roman_to_int(roman_string):
     indx1 = 0
     indx2 = 0
     sum = 0
-    count = len(roman_string) - 1
+    count = len(roman_string)
     if count == 0:
         return 0
+    count -= 1
     while count >= 0:
         if roman_string[count] in roman_dict:
             indx1 = str.index(roman_string[count])
