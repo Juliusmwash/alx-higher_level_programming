@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    roman_dict = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+    roman_dict = {"I": 1, "V": 5, "X": 10, "L": 50,
+                  "C": 100, "D": 500, "M": 1000}
     str = "IVXLCDM"
     indx1 = 0
     indx2 = 0
     sum = 0
-    if roman_string == None or isinstance(roman_string, type(str)) == False:
-        return 0;
+    if roman_string is None or not isinstance(roman_string, type(str)):
+        return 0
     count = len(roman_string)
     if count == 0:
         return 0
@@ -29,7 +30,6 @@ def roman_to_int(roman_string):
             else:
                 sum += roman_dict.get(roman_string[count])
         else:
-            return 0;
+            return 0
         count -= 1
     return sum
-
