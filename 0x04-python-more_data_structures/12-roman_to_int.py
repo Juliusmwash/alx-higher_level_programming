@@ -1,14 +1,47 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    roman_dict = {"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5, "VI": 6,
-                  "VII": 7, "VIII": 8, "IX": 9, "X": 10, "XI": 11, "XII": 12, "XIII": 13,
-                  "XIV": 14, "XV": 15, "XVI": 16, "XVII": 17, "XVIII": 18, "XIX": 19, "XX": 20, "XXI": 21,
-                  "XXII": 22, "XXIII": 23, "XXIV": 24, "XXX": 30, "XL": 40, "L": 50, "LX": 60,
-                  "LXX": 70, "LXXX": 80, "XC": 90, "C": 100, "CI": 101, "CII": 102, "CC": 200,
-                  "CCC": 300, "CD": 400, "D": 500, "DC": 600, "DCC": 700, "DCCC": 800, "CM": 900,
-                  "M": 1000, "MI": 1001, "MII": 1002, "MIII": 1003, "MCM": 1900, "MM": 2000,
-                  "MMI": 2001, "MMII": 2002, "MMC": 2100, "MMM": 3000, "MMMM": 4000, "V": 5000}
-    for i in roman_dict:
-        if i == roman_string:
-            return roman_dict.get(i)
-    return 0
+    roman_dict = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+
+    str = "IVXLCDM"
+    indx1 = 0
+    indx2 = 0
+    sum = 0
+    count = len(roman_string) - 1
+    if count == 0:
+        return 0
+    while count >= 0:
+        if roman_string[count] in roman_dict:
+            indx1 = str.index(roman_string[count])
+            if count != 0:
+                if roman_string[count - 1] in roman_dict:
+                    indx2 = str.index(roman_string[count - 1])
+                else:
+                    return 0
+                if indx1 <= indx2:
+                    sum += roman_dict.get(roman_string[count])
+                    #print("sum = {:d}".format(sum))
+                else:
+                    tmp = roman_dict.get(roman_string[count])
+                    tmp2 = roman_dict.get(roman_string[count - 1])
+                    sum += (tmp - tmp2)
+                    count -= 1
+                    #print("sum = {:d}".format(sum))
+            else:
+                sum += roman_dict.get(roman_string[count])
+                #print("sum = {:d}".format(sum))
+        else:
+            print("not found")
+            return 0;
+        count -= 1
+    return sum
+"""
+print(roman_to_int("CCCLXXIII"))
+print(roman_to_int("DCCXXXIII"))
+print(roman_to_int("MMDCCCLXII"))
+print(roman_to_int("MDCCLXIV"))
+print(roman_to_int("DCCCLXII"))
+"""
+print(roman_to_int("CMJXXXVI"))
+"""
+print("000 = CCCLXXIII, 733 = DCCXXXIII, 2862 = MMDCCCLXII, 1764 = MDCCLXIV, 862 = DCCCLXII, 936 = CMXXXVI")
+"""
