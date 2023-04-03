@@ -12,13 +12,13 @@ class Rectangle:
             width (int): width of the rectangle.
             height (int): height of the rectangle.
         """
-        if not isinstance(value, int):
+        if not isinstance(width, int):
             raise TypeError("width must be an integer")
-        elif value < 0:
+        elif width < 0:
             raise ValueError("width must be >= 0")
-        if not isinstance(value, int):
+        if not isinstance(height, int):
             raise TypeError("height must be an integer")
-        elif value < 0:
+        elif height < 0:
             raise ValueError("height must be >= 0")
         self.__width = width
         self.__height = height
