@@ -74,6 +74,7 @@ class Rectangle:
                 if j != self.__height - 1 and i == self.__width - 1:
                     a += "\n"
         return a
+
     def __repr__(self):
         """ return a string representation of the rectangle """
         return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
