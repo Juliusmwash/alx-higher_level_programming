@@ -106,7 +106,7 @@ class Rectangle:
             raise TypeiError("rect_2 must be an instance of Rectangle")
         aa = rect_1.width * rect_1.height
         bb = rect_2.width * rect_2.height
-        if aa > bb:
+        if aa == bb or aa > bb:
             return rect_1
         else:
             return rect_2
