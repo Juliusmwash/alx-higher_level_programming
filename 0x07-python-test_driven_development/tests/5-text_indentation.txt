@@ -1,0 +1,44 @@
+This function contains test cases for function ''text_indentation''
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+(1) Test case 1
+>>> text_indentation('Julius how are you')
+Julius how are you
+
+(2) Test case 2
+# Eliminates all the spaces after . or : or ?
+>>> text_indentation('Julius how are you.    ')
+Julius how are you.
+<BLANKLINE>
+>>> text_indentation('Julius how are you?    ')
+Julius how are you?
+<BLANKLINE>
+>>> text_indentation('Julius how are you:    ')
+Julius how are you:
+<BLANKLINE>
+
+(3) Test case 3
+>>> text_indentation(34)
+Traceback (most recent call last):
+	...
+TypeError: text must be a string
+
+(4) Test case 4
+# No '?' or '.' or ':'
+>>> text_indentation('Julius how are you')
+Julius how are you
+
+(5) Test case 5
+# Generate multiple statements
+>>> text_indentation('Julius how are you?  We have not seen each other for a while now. ')
+Julius how are you?
+<BLANKLINE>
+We have not seen each other for a while now.
+<BLANKLINE>
+
+(6) Test case 6
+>>> text_indentation('Julius. Mwangi')
+Julius.
+<BLANKLINE>
+Mwangi
