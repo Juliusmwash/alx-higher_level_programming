@@ -30,3 +30,9 @@ ValueError: size must be >= 0
 Traceback (most recent call last):
 	...
 TypeError: size must be an integer
+
+(6) Test case 6
+>>> print_square()
+Traceback (most recent call last):
+	...
+TypeError: print_square() missing 1 required positional argument: 'size'
