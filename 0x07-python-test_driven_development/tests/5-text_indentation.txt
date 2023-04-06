@@ -42,3 +42,9 @@ We have not seen each other for a while now.
 Julius.
 <BLANKLINE>
 Mwangi
+
+(7) Test case 7
+>>> text_indentation(None)
+Traceback (most recent call last):
+	...
+TypeError: text must be a string
