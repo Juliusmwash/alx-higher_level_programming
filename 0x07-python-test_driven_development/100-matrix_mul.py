@@ -64,11 +64,6 @@ should contain only integers or floats')
     cols_A = len(m_a[0])
     rows_B = len(m_b)
     cols_B = len(m_b[0])
-
-    if cols_A != rows_B:
-      print("Cannot multiply the two matrices. Incorrect dimensions.")
-      return
-
     # Create the result matrix
     # Dimensions would be rows_A x cols_B
     C = [[0 for row in range(cols_B)] for col in range(rows_A)]
