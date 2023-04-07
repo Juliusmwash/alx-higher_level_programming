@@ -1,12 +1,24 @@
 This file consists of test cases for function ''matrix_mul''
-
++NORMALIZE_WHITESPACE
 >>> matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+(1) Test case 1
+>>> matrix_mul("Julius", [[1, 1], [2, 3]])
+Traceback (most recent call last):
+	...
+numpy.core._exceptions._UFuncNoLoopError: ufunc 'multiply' did not contain a loop with signature matching types (dtype('<U6'), dtype('<U1')) -> None
 
 (2) Test case 2
 >>> matrix_mul([[1, 1], "Julius"], [[1, 1], [2, 3]])
 Traceback (most recent call last):
 	...
 ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (2,) + inhomogeneous part.
+
+(3) Test case 3
+>>> matrix_mul([[1, 1], [2, 3]], "Julius")
+Traceback (most recent call last):
+	...
+numpy.core._exceptions._UFuncNoLoopError: ufunc 'multiply' did not contain a loop with signature matching types (dtype('<U1'), dtype('<U6')) -> None
 
 (4) Test case 4
 >>> matrix_mul([[1, 1], [2, 3]], [[1, 1], "Julius"])
@@ -83,3 +95,15 @@ TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
 Traceback (most recent call last):
         ...
 TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+(17) Test case 17
+>>> matrix_mul([[1, "1"], [2, 2]], [[1, 1], [2, 2]])
+Traceback (most recent call last):
+	...
+ValueError: data type must provide an itemsize
+
+(18) Test case 18
+>>> matrix_mul([[1, 1], [2, 2]], [[1, "1"], [2, 2]])
+Traceback (most recent call last):
+	...
+ValueError: data type must provide an itemsize
