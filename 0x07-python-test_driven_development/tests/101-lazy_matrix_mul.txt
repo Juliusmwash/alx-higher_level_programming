@@ -1,0 +1,85 @@
+This file consists of test cases for function ''matrix_mul''
+
+>>> matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+(2) Test case 2
+>>> matrix_mul([[1, 1], "Julius"], [[1, 1], [2, 3]])
+Traceback (most recent call last):
+	...
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (2,) + inhomogeneous part.
+
+(4) Test case 4
+>>> matrix_mul([[1, 1], [2, 3]], [[1, 1], "Julius"])
+Traceback (most recent call last):
+        ...
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (2,) + inhomogeneous part.
+
+(5) Test case 5
+>>> matrix_mul([], [[1, 1], [2, 3]])
+Traceback (most recent call last):
+        ...
+ValueError: shapes (0,) and (2,2) not aligned: 0 (dim 0) != 2 (dim 0)
+
+(6) Test case 6
+>>> matrix_mul([[1, 1], [2, 3]], [])
+Traceback (most recent call last):
+        ...
+ValueError: shapes (2,2) and (0,) not aligned: 2 (dim 1) != 0 (dim 0)
+
+(7) Test case 7
+>>> matrix_mul([[]], [[1, 1], [2, 3]])
+Traceback (most recent call last):
+        ...
+ValueError: shapes (1,0) and (2,2) not aligned: 0 (dim 1) != 2 (dim 0)
+
+(8) Test case 8
+>>> matrix_mul([[1, 1], [2, 3]], [[]])
+Traceback (most recent call last):
+        ...
+ValueError: shapes (2,2) and (1,0) not aligned: 2 (dim 1) != 1 (dim 0)
+
+(9) Test case 9
+>>> matrix_mul([[1, 1], [2, 3, 4]], [[1, 1], [2, 3]])
+Traceback (most recent call last):
+        ...
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (2,) + inhomogeneous part.
+
+(10) Test case 10
+>>> matrix_mul([[1, 1], [2, 3]], [[1, 1], [2, 3, 4]])
+Traceback (most recent call last):
+        ...
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (2,) + inhomogeneous part.
+
+(11) Test case 11
+>>> matrix_mul([[1, 1]], [[2, 3], [1, 1]])
+array([[3, 4]])
+
+(12) Test case 12
+>>> matrix_mul([[2, 3], [1, 1]], [[1, 1]])
+Traceback (most recent call last):
+        ...
+ValueError: shapes (2,2) and (1,2) not aligned: 2 (dim 1) != 1 (dim 0)
+
+(13) Test case 13
+>>> matrix_mul([['j', 3], [1, 1]], [[1, 1], [1, 1]])
+Traceback (most recent call last):
+	...
+ValueError: data type must provide an itemsize
+
+(14) Test case 14
+>>> matrix_mul([[1, 1], [1, 1]], [['j', 3], [1, 1]])
+Traceback (most recent call last):
+        ...
+ValueError: data type must provide an itemsize
+
+(15) Test case 15
+>>> matrix_mul([[1, 2], [1, 2]])
+Traceback (most recent call last):
+        ...
+TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+
+(16) Test case 16
+>>> matrix_mul()
+Traceback (most recent call last):
+        ...
+TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
