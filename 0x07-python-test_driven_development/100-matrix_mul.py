@@ -45,7 +45,6 @@ should contain only integers or floats')
                         raise TypeError('m_b \
 should contain only integers or floats')
     if len(m_a[0]) != len(m_b):
-        print("not equal, len(m_a[0]: {:d}\nlen(m_b): {:d}".format(len(m_a[0]), len(m_b)))
         raise ValueError("m_a and m_b can't be multiplied")
     """
     main_result = []
