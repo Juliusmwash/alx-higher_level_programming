@@ -1,0 +1,73 @@
+This file consists of test cases for function ''matrix_mul''
+
+>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+(1) Test case (1)
+>>> matrix_mul(([1, 1], [2, 3]), [[1, 1], [2, 3]])
+Traceback (most recent call last):
+	...
+TypeError: m_a must be a list
+
+(2) Test case 2
+>>> matrix_mul([[1, 1], "Julius"], [[1, 1], [2, 3]])
+Traceback (most recent call last):
+	...
+TypeError: m_a must be a list of lists
+
+(3) Test case 3
+>>> matrix_mul([[1, 1], [2, 3]], ([1, 1], [2, 3]))
+Traceback (most recent call last):
+	...
+TypeError: m_b must be a list
+
+(4) Test case 4
+>>> matrix_mul([[1, 1], [2, 3]], [[1, 1], "Julius"])
+Traceback (most recent call last):
+        ...
+TypeError: m_b must be a list of lists
+
+(5) Test case 5
+>>> matrix_mul([], [[1, 1], [2, 3]])
+Traceback (most recent call last):
+        ...
+ValueError: m_a can't be empty
+
+(6) Test case 6
+>>> matrix_mul([[1, 1], [2, 3]], [])
+Traceback (most recent call last):
+        ...
+ValueError: m_b can't be empty
+
+(7) Test case 7
+>>> matrix_mul([[]], [[1, 1], [2, 3]])
+Traceback (most recent call last):
+        ...
+ValueError: m_a can't be empty
+
+(8) Test case 8
+>>> matrix_mul([[1, 1], [2, 3]], [[]])
+Traceback (most recent call last):
+        ...
+ValueError: m_b can't be empty
+
+(9) Test case 9
+>>> matrix_mul([[1, 1], [2, 3, 4]], [[1, 1], [2, 3]])
+Traceback (most recent call last):
+        ...
+TypeError: each row of m_a must be of the same size
+
+(10) Test case 10
+>>> matrix_mul([[1, 1], [2, 3]], [[1, 1], [2, 3, 4]])
+Traceback (most recent call last):
+        ...
+TypeError: each row of m_b must be of the same size
+
+(11) Test case 11
+>>> matrix_mul([[1, 1]], [[2, 3], [1, 1]])
+[[3, 4]]
+
+(12) Test case 12
+>>> matrix_mul([[2, 3], [1, 1]], [[1, 1]])
+Traceback (most recent call last):
+        ...
+ValueError: m_a and m_b can't be multiplied
