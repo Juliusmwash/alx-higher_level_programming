@@ -56,3 +56,36 @@ TypeError: name must be an integer
 Traceback (most recent call last):
 	...
 TypeError: name must be an integer
+
+(9) Test case 9
+>>> a = BaseGeometry()
+>>> a.integer_validator("name", 2)
+
+(10) Test case 10
+>>> a = BaseGeometry()
+>>> a.integer_validator("name", 0)
+Traceback (most recent call last):
+	...
+ValueError: name must be greater than 0
+
+(11) Test case 11
+>>> a = BaseGeometry()
+>>> a.integer_validator("name", "34")
+Traceback (most recent call last):
+	...
+TypeError: name must be an integer
+
+(12) Test case 12
+>>> a = BaseGeometry()
+>>> a.integer_validator("name", {3, 4})
+Traceback (most recent call last):
+	...
+TypeError: name must be an integer
+
+(13) Test case 13
+>>> a = BaseGeometry()
+>>> a.integer_validator("name", True)
+Traceback (most recent call last):
+	...
+TypeError: name must be an integer
+
