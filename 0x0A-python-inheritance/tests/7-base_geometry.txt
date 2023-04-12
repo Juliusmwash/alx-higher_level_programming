@@ -21,3 +21,38 @@ ValueError: integer must be greater than 0
 Traceback (most recent call last):
 	...
 Exception: area() is not implemented
+
+(4) Test case 4
+>>> a = BaseGeometry()
+>>> a.integer_validator()
+Traceback (most recent call last):
+	...
+TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+(5) Test case 5
+>>> a = BaseGeometry()
+>>> a.integer_validator("name")
+Traceback (most recent call last):
+	...
+TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
+(6) Test case 6
+>>> a = BaseGeometry()
+>>> a.integer_validator("name", None)
+Traceback (most recent call last):
+	...
+TypeError: name must be an integer
+
+(7) Test case 7
+>>> a = BaseGeometry()
+>>> a.integer_validator("name", [1, 2])
+Traceback (most recent call last):
+	...
+TypeError: name must be an integer
+
+(8) Test case 8
+>>> a = BaseGeometry()
+>>> a.integer_validator("name", (3, 6))
+Traceback (most recent call last):
+	...
+TypeError: name must be an integer
