@@ -1,22 +1,28 @@
 #!/usr/bin/python3
-"""Defines a class Student."""
+""" Defines the class 'Student' """
 
 
 class Student:
-    """Represent a student."""
-
+    """ Contains details for a student """
     def __init__(self, first_name, last_name, age):
-        """Initialize a new Student.
-
-        Args:
-            first_name (str): The first name of the student.
-            last_name (str): The last name of the student.
-            age (int): The age of the student.
-        """
+        """ class constructor """
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
-    def to_json(self):
-        """Get a dictionary representation of the Student."""
-        return self.__dict__
+    def to_json(self, attrs=None):
+        """ Retrieves a dictionary representation of a Student instance """
+        d = dict()
+        if attrs is None:
+            return self.__dict__
+        else:
+            for item in attrs:
+                if item in self.__dict__:
+                    d[item] = self.__dict__[item]
+        return d
+
+    def reload_from_json(self, json):
+        """ Replaces all attributes of the Student instance """
+        self.first_name = json["first_name"]
+        self.last_name = json["last_name"]
+        self.age = json["age"]
