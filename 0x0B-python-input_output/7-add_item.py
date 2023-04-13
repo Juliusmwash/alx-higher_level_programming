@@ -13,8 +13,6 @@ if os.path.exists("add_item.json"):
     argv_list2 = load_file("add_item.json")
     for item in argv_list2:
         argv_list.append(item)
-else:
-    print("file does not exist")
 for item in sys.argv:
     if check:
         argv_list.append(item)
