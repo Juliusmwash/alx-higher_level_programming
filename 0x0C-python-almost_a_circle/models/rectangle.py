@@ -82,7 +82,7 @@ class Rectangle(Base):
     def display(self):
         """ Prints a rectangle using character '#' """
         for i in range(self.__y):
-            print("");
+            print("")
         for i in range(self.__height):
             for k in range(self.__x):
                 print(" ", end="")
@@ -94,3 +94,18 @@ class Rectangle(Base):
         """ returns a string of rectangle details """
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}\
 ".format(self.id, self.__x, self.__y, self.__width, self.__height)
+
+    def update(self, *args):
+        """ Updates class 'Rectangle' """
+        length = len(args)
+        for i in range(length):
+            if i == 0 and args[i] is not None:
+                self.id = args[i]
+            elif i == 1 and args[i] is not None:
+                self.__width = args[i]
+            elif i == 2 and args[i] is not None:
+                self.__height = args[i]
+            elif i == 3 and args[i] is not None:
+                self.__x = args[i]
+            elif i == 4 and args[i] is not None:
+                self.__y = args[i]
