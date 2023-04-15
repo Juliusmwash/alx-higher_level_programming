@@ -95,17 +95,38 @@ class Rectangle(Base):
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}\
 ".format(self.id, self.__x, self.__y, self.__width, self.__height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """ Updates class 'Rectangle' """
-        length = len(args)
-        for i in range(length):
-            if i == 0 and args[i] is not None:
-                self.id = args[i]
-            elif i == 1 and args[i] is not None:
-                self.__width = args[i]
-            elif i == 2 and args[i] is not None:
-                self.__height = args[i]
-            elif i == 3 and args[i] is not None:
-                self.__x = args[i]
-            elif i == 4 and args[i] is not None:
-                self.__y = args[i]
+        if args:
+            for i in range(len(args)):
+                if i == 0:
+                    if type(args[i]) == int:
+                        self.id = args[i]
+                elif i == 1:
+                    Rectangle.validator("width", args[i], 0)
+                    self.__width = args[i]
+                elif i == 2:
+                    Rectangle.validator("height", args[i], 0)
+                    self.__height = args[i]
+                elif i == 3:
+                    Rectangle.validator("x", 1, args[i])
+                    self.__x = args[i]
+                elif i == 4:
+                    Rectangle.validator("y", 1, args[i])
+                    self.__y = args[i]
+        else:
+            if 'id' in kwargs:
+                if type(kwargs['id']) == int:
+                    self.id = kwargs['id']
+            if 'width' in kwargs:
+                Rectangle.validator("width", kwargs['width'], 0)
+                self.__width = kwargs['width']
+            if 'x' in kwargs:
+                Rectangle.validator("x", 1, kwargs['x'])
+                self.__x = kwargs['x']
+            if 'height' in kwargs:
+                Rectangle.validator("height", kwargs['height'], 0)
+                self.__height = kwargs['height']
+            if 'y' in kwargs:
+                Rectangle.validator("y", 1, kwargs['y'])
+                self.__y = kwargs['y']
