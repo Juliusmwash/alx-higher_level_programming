@@ -9,5 +9,5 @@ if __name__ == "__main__":
 
     print("---")
 
-    r2 = Rectangle(3, 2, 1, 0)
+    r2 = Rectangle(3, 2, 8, 8)
     r2.display()
