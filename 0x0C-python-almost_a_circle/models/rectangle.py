@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Defines class 'Rectangle' """
-#Base = __import__('base').Base
 from models.base import Base
+" # Base = __import__('base').Base"
 
 
 class Rectangle(Base):
@@ -78,3 +78,10 @@ class Rectangle(Base):
     def area(self):
         """ returns area of a rectangle """
         return self.__width * self.__height
+
+    def display(self):
+        """ Prints a rectangle using character '#' """
+        for i in range(self.__height):
+            for j in range(self.__width):
+                print('#', end='')
+            print("")
