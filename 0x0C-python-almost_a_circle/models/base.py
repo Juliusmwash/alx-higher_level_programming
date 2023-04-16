@@ -63,8 +63,33 @@ class Base:
             with open(filename, mode='r') as f:
                 json_list = cls.from_json_string(f.read())
                 for item in json_list:
-                    obj = cls.create(**item)
-                    obj_list.append(obj)
+                    obj_list.append(cls.create(**item))
                 return obj_list
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ serializes object files """
+        name = cls.__name__ + '.json'
+        list_dicts = []
+        with open(name, mode='w', encoding='utf-8') as f:
+            for obj in list_objs:
+                list_dicts.append(cls.to_dictionary(obj))
+            string = str(list_dicts)
+            f.write(string)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ deserializes object files """
+        name = cls.__name__ + '.json'
+        lst_objs = []
+        try:
+            with open(name, mode='r') as f:
+                lst_dicts = eval(f.read())
+                for dictionary in lst_dicts:
+                    obj = cls.create(**dictionary)
+                    lst_objs.append(obj)
+                return lst_objs
         except FileNotFoundError:
             return []
