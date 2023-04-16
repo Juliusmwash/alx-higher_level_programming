@@ -63,14 +63,4 @@ class Square(Rectangle):
 
     def to_dictionary(self):
         """ returns dictionary of class Rectangle attributes """
-        new_dict = {}
-        for key, value in self.__dict__.items():
-            if key == '_Rectangle__width':
-                new_dict['size'] = value
-            elif key == '_Rectangle__x':
-                new_dict['x'] = value
-            elif key == '_Rectangle__y':
-                new_dict['y'] = value
-            elif key == 'id':
-                new_dict[key] = value
-        return new_dict
+        return {'size': self.width, 'x': self.x, 'y': self.y, 'id': self.id}

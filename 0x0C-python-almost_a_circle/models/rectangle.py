@@ -133,16 +133,9 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """ returns dictionary of class Rectangle attributes """
-        new_dict = {}
-        for key, value in self.__dict__.items():
-            if key == '_Rectangle__width':
-                new_dict['width'] = value
-            elif key == '_Rectangle__height':
-                new_dict['height'] = value
-            elif key == '_Rectangle__x':
-                new_dict['x'] = value
-            elif key == '_Rectangle__y':
-                new_dict['y'] = value
-            else:
-                new_dict[key] = value
-        return new_dict
+        return (
+                {'width': self.width,
+                 'height': self.height,
+                 'x': self.x, 'y': self.y, 
+                 'id': self.id}
+                )
