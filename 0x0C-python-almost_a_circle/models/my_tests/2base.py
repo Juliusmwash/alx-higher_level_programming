@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ Defines class 'Base' """
 import json
-import csv
 
 
 class Base:
@@ -74,42 +73,23 @@ class Base:
         """ serializes object files """
         name = cls.__name__ + '.csv'
         list_dicts = []
-        for obj in list_objs:
-            list_dicts.append(obj.to_dictionary())
-        if cls.__name__ == 'Rectangle':
-            fd_names = ['id', 'width', 'height', 'x', 'y']
-        elif cls.__name__ == 'Square':
-            fd_names = ['id', 'size', 'x', 'y']
-
-        with open(name, mode='w', newline='') as csvfile:
-            writer = csv.DictWriter(csvfile, fieldnames=fd_names)
-            writer.writeheader()
-            for row in list_dicts:
-                writer.writerow(row)
+        with open(name, mode='w', encoding='utf-8') as f:
+            for obj in list_objs:
+                list_dicts.append(cls.to_dictionary(obj))
+            string = str(list_dicts)
+            f.write(string)
 
     @classmethod
     def load_from_file_csv(cls):
         """ deserializes object files """
         name = cls.__name__ + '.csv'
-        list_objs = []
-        list_dicts = []
+        lst_objs = []
         try:
-            with open(name, mode='r') as csvfile:
-                reader = csv.DictReader(csvfile)
-                for row in reader:
-                    row['id'] = int(row['id'])
-                    row['x'] = int(row['x'])
-                    row['y'] = int(row['y'])
-                    if cls.__name__ == 'Rectangle':
-                        row['width'] = int(row['width'])
-                        row['height'] = int(row['height'])
-                    elif cls.__name__ == 'Square':
-                        row['size'] = int(row['size'])
-                    list_dicts.append(row)
-
-                for dictionary in list_dicts:
+            with open(name, mode='r') as f:
+                lst_dicts = eval(f.read())
+                for dictionary in lst_dicts:
                     obj = cls.create(**dictionary)
-                    list_objs.append(obj)
-                return list_objs
+                    lst_objs.append(obj)
+                return lst_objs
         except FileNotFoundError:
             return []
