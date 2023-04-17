@@ -116,3 +116,26 @@ class Square_testing(unittest.TestCase):
             print(s1)
             output = "[Square] (89) 12/1 - 7\n"
             self.assertEqual(fake_output.getvalue(), output)
+
+    def test_5square(self):
+        """ Sixth test case """
+        s1 = Square(10, 2, 1, 64)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(s1)
+            output = "[Square] (64) 2/1 - 10\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square(1, 1, 0, 90)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(s2)
+            output = "[Square] (90) 1/0 - 1\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        s2.update(**s1_dictionary)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(s2)
+            output = "[Square] (64) 2/1 - 10\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(s1 == s2)
+            output = "False\n"
+            self.assertEqual(fake_output.getvalue(), output)

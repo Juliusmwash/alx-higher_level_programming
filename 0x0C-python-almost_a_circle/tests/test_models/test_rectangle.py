@@ -4,6 +4,7 @@ import unittest
 from unittest.mock import patch
 from io import StringIO
 from models.rectangle import Rectangle
+from models.base import Base
 
 
 class Test_rectangle(unittest.TestCase):
@@ -192,7 +193,70 @@ class Test_rectangle(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as fake_output:
             print(r1)
             self.assertEqual(fake_output.getvalue(), output)
-    
+
+    def test_25rectangle(self):
+        """ 25th test case """
+        r1 = Rectangle(10, 2, 1, 9, 89)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(r1)
+            output = "[Rectangle] (89) 1/9 - 10/2\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        r1_dictionary = r1.to_dictionary()
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(type(r1_dictionary))
+            output = "<class 'dict'>\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        r2 = Rectangle(1, 1, 0, 0, 75)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(r2)
+            output = "[Rectangle] (75) 0/0 - 1/1\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        r2.update(**r1_dictionary)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(r2)
+            output = "[Rectangle] (89) 1/9 - 10/2\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(r1 == r2)
+            output = "False\n"
+            self.assertEqual(fake_output.getvalue(), output)
+
+    def test_26rectangle(self):
+        """ 26th test case """
+        r1 = Rectangle(10, 7, 2, 8)
+        dictionary = r1.to_dictionary()
+        json_dictionary = Base.to_json_string([dictionary])
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(type(dictionary))
+            output = "<class 'dict'>\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(type(json_dictionary))
+            output = "<class 'str'>\n"
+            self.assertEqual(fake_output.getvalue(), output)
+
+    def test_27rectangle(self):
+        """ 27th test case """
+        r1 = Rectangle(3, 5, 1, 0, 43)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(r1)
+            output = "[Rectangle] (43) 1/0 - 3/5\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(r2)
+            output = "[Rectangle] (43) 1/0 - 3/5\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(r1 is r2)
+            output = "False\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(r1 == r2)
+            output = "False\n"
+            self.assertEqual(fake_output.getvalue(), output)
+
     def suite(self):
         suite = unittest.TestSuite()
         suite.addTest(self.test_2rectangle())
