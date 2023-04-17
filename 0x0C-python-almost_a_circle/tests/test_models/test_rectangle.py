@@ -130,7 +130,40 @@ class Test_rectangle(unittest.TestCase):
         output = " ###\n ###\n"
         with patch('sys.stdout', new=StringIO()) as fake_output:
             r1.display()
-            self.assertEqual(fake_output.getvalue(), ouput)
+            self.assertEqual(fake_output.getvalue(), output)
+
+    def test_23rectangle(self):
+        """ 23th test case """
+        r1 = Rectangle(10, 10, 10, 10, 65)
+        output = "[Rectangle] (65) 10/10 - 10/10\n"
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(r1)
+            self.assertEqual(fake_output.getvalue(), output)
+        r1.update(89)
+        output = "[Rectangle] (89) 10/10 - 10/10\n"
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(r1)
+            self.assertEqual(fake_output.getvalue(), output)
+        r1.update(89, 2)
+        output = "[Rectangle] (89) 10/10 - 2/10\n"
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(r1)
+            self.assertEqual(fake_output.getvalue(), output)
+        r1.update(89, 2, 3)
+        output = "[Rectangle] (89) 10/10 - 2/3\n"
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(r1)
+            self.assertEqual(fake_output.getvalue(), output)
+        r1.update(89, 2, 3, 4)
+        output = "[Rectangle] (89) 4/10 - 2/3\n"
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(r1)
+            self.assertEqual(fake_output.getvalue(), output)
+        r1.update(89, 2, 3, 4, 5)
+        output = "[Rectangle] (89) 4/5 - 2/3\n"
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(r1)
+            self.assertEqual(fake_output.getvalue(), output)
 
     def suite(self):
         suite = unittest.TestSuite()
