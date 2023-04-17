@@ -54,3 +54,65 @@ class Square_testing(unittest.TestCase):
             s1.display()
             output = "\n\n\n ###\n ###\n ###\n"
             self.assertEqual(fake_output.getvalue(), output)
+
+    def test_3square(self):
+        """ Fourth test case """
+        s1 = Square(5, 0, 0, 43)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(s1)
+            output = "[Square] (43) 0/0 - 5\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(s1.size)
+            output = "5\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        s1.size = 10
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(s1.size)
+            output = "10\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        with self.assertRaises(TypeError):
+            s1.size = "9"
+
+    def test_4square(self):
+        """ Fifth test case """
+        s1 = Square(5, 0, 0, 38)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(s1)
+            output = "[Square] (38) 0/0 - 5\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        s1.update(10)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(s1)
+            output = "[Square] (10) 0/0 - 5\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        s1.update(1, 2)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(s1)
+            output = "[Square] (1) 0/0 - 2\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        s1.update(1, 2, 3)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(s1)
+            output = "[Square] (1) 3/0 - 2\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        s1.update(1, 2, 3, 4)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(s1)
+            output = "[Square] (1) 3/4 - 2\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        s1.update(x=12)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(s1)
+            output = "[Square] (1) 12/4 - 2\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        s1.update(size=7, y=1)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(s1)
+            output = "[Square] (1) 12/1 - 7\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        s1.update(size=7, id=89, y=1)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(s1)
+            output = "[Square] (89) 12/1 - 7\n"
+            self.assertEqual(fake_output.getvalue(), output)
