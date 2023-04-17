@@ -249,6 +249,19 @@ class Test_rectangle(unittest.TestCase):
             for rect1, rect2 in zip(list_rectangles_input, list_rectangles_output):
                 self.assertNotEqual(id(rect1), id(rect2))
 
+    def test_28rectangle(self):
+        """ 29th test case """
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            r1 = Rectangle(10, 7, 2, 8, 20)
+            r2 = Rectangle(2, 4, 0, 0, 21)
+            list_rectangles_input = [r1, r2]
+            Rectangle.save_to_file_csv(list_rectangles_input)
+            list_rectangles_output = Rectangle.load_from_file_csv()
+            self.assertNotEqual(list_rectangles_input, list_rectangles_output)
+            for rect1, rect2 in zip(list_rectangles_input, list_rectangles_output):
+                self.assertNotEqual(id(rect1), id(rect2))
+
+
     def suite(self):
         suite = unittest.TestSuite()
         suite.addTest(self.test_2rectangle())

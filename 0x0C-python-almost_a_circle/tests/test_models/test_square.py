@@ -150,3 +150,14 @@ class Square_testing(unittest.TestCase):
         self.assertNotEqual(list_squares_input, list_squares_output)
         for squr1, squr2 in zip(list_squares_input, list_squares_output):
             self.assertNotEqual(id(squr1), id(squr2))
+
+    def test_7square(self):
+        """ Seventh test case """
+        s1 = Square(5)
+        s2 = Square(7, 9, 1)
+        list_squares_input = [s1, s2]
+        Square.save_to_file_csv(list_squares_input)
+        list_squares_output = Square.load_from_file_csv()
+        self.assertNotEqual(list_squares_input, list_squares_output)
+        for squr1, squr2 in zip(list_squares_input, list_squares_output):
+            self.assertNotEqual(id(squr1), id(squr2))
