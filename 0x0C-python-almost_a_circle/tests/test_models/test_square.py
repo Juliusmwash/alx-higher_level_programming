@@ -22,22 +22,35 @@ class Square_testing(unittest.TestCase):
             s1.display()
             output = "#####\n#####\n#####\n#####\n#####\n"
             self.assertEqual(fake_output.getvalue(), output)
-    """
-    s1 = Square(5)
-    print(s1)
-    print(s1.area())
-    s1.display()
 
-    print("---")
+    def test_1square(self):
+        """ Second test case """
+        s1 = Square(2, 2, 0, 85)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(s1)
+            output = "[Square] (85) 2/0 - 2\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(s1.area())
+            output = "4\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            s1.display()
+            output = "  ##\n  ##\n"
+            self.assertEqual(fake_output.getvalue(), output)
 
-    s2 = Square(2, 2)
-    print(s2)
-    print(s2.area())
-    s2.display()
-
-    print("---")
-
-    s3 = Square(3, 1, 3)
-    print(s3)
-    print(s3.area())
-    s3.display() """
+    def test_2square(self):
+        """ Third test case """
+        s1 = Square(3, 1, 3, 71)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(s1)
+            output = "[Square] (71) 1/3 - 3\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(s1.area())
+            output = "9\n"
+            self.assertEqual(fake_output.getvalue(), output)
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            s1.display()
+            output = "\n\n\n ###\n ###\n ###\n"
+            self.assertEqual(fake_output.getvalue(), output)
