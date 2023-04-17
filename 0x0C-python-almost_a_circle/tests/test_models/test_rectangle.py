@@ -5,6 +5,7 @@ from unittest.mock import patch
 from io import StringIO
 from models.rectangle import Rectangle
 
+
 class Test_rectangle(unittest.TestCase):
     """ Test cases for rectangle """
     def test_2rectangle(self):
@@ -50,7 +51,7 @@ class Test_rectangle(unittest.TestCase):
         """ Nineth test case """
         with self.assertRaises(TypeError):
             r9 = Rectangle(2, 5, 3, "8")
-    
+
     def test_10rectangle(self):
         """ Tenth test case """
         with self.assertRaises(TypeError):
@@ -115,7 +116,22 @@ class Test_rectangle(unittest.TestCase):
             print(r1)
             self.assertEqual(fake_output.getvalue(), output)
 
-    
+    def test_21rectangle(self):
+        """ 21th test case """
+        r1 = Rectangle(2, 3, 2, 2)
+        output = "\n\n  ##\n  ##\n  ##\n"
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            r1.display()
+            self.assertEqual(fake_output.getvalue(), output)
+
+    def test_22rectangle(self):
+        """ 22th test case """
+        r1 = Rectangle(3, 2, 1, 0)
+        output = " ###\n ###\n"
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            r1.display()
+            self.assertEqual(fake_output.getvalue(), ouput)
+
     def suite(self):
         suite = unittest.TestSuite()
         suite.addTest(self.test_2rectangle())
@@ -141,10 +157,3 @@ class Test_rectangle(unittest.TestCase):
     if __name__ == '__main__':
         runner = unittest.TextTestRunner()
         runner.run(MyTestClass().suite())
-
-    """
-    r1 = Rectangle(4, 6, 2, 1, 12)
-    print(r1)
-
-    r2 = Rectangle(5, 5, 1)
-    print(r2) """
