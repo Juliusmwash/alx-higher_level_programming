@@ -139,3 +139,14 @@ class Square_testing(unittest.TestCase):
             print(s1 == s2)
             output = "False\n"
             self.assertEqual(fake_output.getvalue(), output)
+
+    def test_6square(self):
+        """ Sixth test case """
+        s1 = Square(5)
+        s2 = Square(7, 9, 1)
+        list_squares_input = [s1, s2]
+        Square.save_to_file(list_squares_input)
+        list_squares_output = Square.load_from_file()
+        self.assertNotEqual(list_squares_input, list_squares_output)
+        for squr1, squr2 in zip(list_squares_input, list_squares_output):
+            self.assertNotEqual(id(squr1), id(squr2))

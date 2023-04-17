@@ -197,28 +197,20 @@ class Test_rectangle(unittest.TestCase):
     def test_25rectangle(self):
         """ 25th test case """
         r1 = Rectangle(10, 2, 1, 9, 89)
-        with patch('sys.stdout', new=StringIO()) as fake_output:
-            print(r1)
-            output = "[Rectangle] (89) 1/9 - 10/2\n"
-            self.assertEqual(fake_output.getvalue(), output)
         r1_dictionary = r1.to_dictionary()
-        with patch('sys.stdout', new=StringIO()) as fake_output:
-            print(type(r1_dictionary))
-            output = "<class 'dict'>\n"
-            self.assertEqual(fake_output.getvalue(), output)
         r2 = Rectangle(1, 1, 0, 0, 75)
         with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(r1)
+            print(type(r1_dictionary))
             print(r2)
-            output = "[Rectangle] (75) 0/0 - 1/1\n"
+            output = "[Rectangle] (89) 1/9 - 10/2\n<class 'dict'>\n[Rectangle] (75) 0/0 - 1/1\n"
             self.assertEqual(fake_output.getvalue(), output)
+
         r2.update(**r1_dictionary)
         with patch('sys.stdout', new=StringIO()) as fake_output:
             print(r2)
-            output = "[Rectangle] (89) 1/9 - 10/2\n"
-            self.assertEqual(fake_output.getvalue(), output)
-        with patch('sys.stdout', new=StringIO()) as fake_output:
             print(r1 == r2)
-            output = "False\n"
+            output = "[Rectangle] (89) 1/9 - 10/2\nFalse\n"
             self.assertEqual(fake_output.getvalue(), output)
 
     def test_26rectangle(self):
@@ -228,11 +220,8 @@ class Test_rectangle(unittest.TestCase):
         json_dictionary = Base.to_json_string([dictionary])
         with patch('sys.stdout', new=StringIO()) as fake_output:
             print(type(dictionary))
-            output = "<class 'dict'>\n"
-            self.assertEqual(fake_output.getvalue(), output)
-        with patch('sys.stdout', new=StringIO()) as fake_output:
             print(type(json_dictionary))
-            output = "<class 'str'>\n"
+            output = "<class 'dict'>\n<class 'str'>\n"
             self.assertEqual(fake_output.getvalue(), output)
 
     def test_27rectangle(self):
@@ -242,20 +231,23 @@ class Test_rectangle(unittest.TestCase):
         r2 = Rectangle.create(**r1_dictionary)
         with patch('sys.stdout', new=StringIO()) as fake_output:
             print(r1)
-            output = "[Rectangle] (43) 1/0 - 3/5\n"
-            self.assertEqual(fake_output.getvalue(), output)
-        with patch('sys.stdout', new=StringIO()) as fake_output:
             print(r2)
-            output = "[Rectangle] (43) 1/0 - 3/5\n"
-            self.assertEqual(fake_output.getvalue(), output)
-        with patch('sys.stdout', new=StringIO()) as fake_output:
             print(r1 is r2)
-            output = "False\n"
-            self.assertEqual(fake_output.getvalue(), output)
-        with patch('sys.stdout', new=StringIO()) as fake_output:
             print(r1 == r2)
-            output = "False\n"
+            output = "[Rectangle] (43) 1/0 - 3/5\nRectangle] (43) 1/0 - 3/5\nFalse\nFalse\n"
             self.assertEqual(fake_output.getvalue(), output)
+
+    def test_27rectangle(self):
+        """ 28th test case """
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            r1 = Rectangle(10, 7, 2, 8, 20)
+            r2 = Rectangle(2, 4, 0, 0, 21)
+            list_rectangles_input = [r1, r2]
+            Rectangle.save_to_file(list_rectangles_input)
+            list_rectangles_output = Rectangle.load_from_file()
+            self.assertNotEqual(list_rectangles_input, list_rectangles_output)
+            for rect1, rect2 in zip(list_rectangles_input, list_rectangles_output):
+                self.assertNotEqual(id(rect1), id(rect2))
 
     def suite(self):
         suite = unittest.TestSuite()
