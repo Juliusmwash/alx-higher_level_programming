@@ -113,3 +113,47 @@ class Base:
                 return list_objs
         except FileNotFoundError:
             return []
+
+    def draw(list_rectangles, list_squares):
+        """ 
+        Draws the given rectangle and square objects.
+        Please import time, to enjoy the scene.
+        """
+        window = turtle.Screen()
+        turtle.speed(5)
+        turtle.pensize(2)
+        turtle.hideturtle()
+        turtle.penup()
+        turtle.bgcolor("pink")
+        colours = ["blue", "green", "red"]
+        k = 0
+        for obj in list_rectangles:
+            turtle.color(colours[k])
+            turtle.begin_fill()
+            turtle.goto(obj.x, obj.y)
+            turtle.pendown()
+            for i in range(2):
+                turtle.forward(obj.width)
+                turtle.left(90)
+                turtle.forward(obj.height)
+                turtle.left(90)
+            k += 1
+            turtle.end_fill()
+            turtle.penup()
+            time.sleep(3)
+            turtle.clear()
+        k = 0
+        colours = ["orange", "purple", "yellow"]
+        for obj in list_squares:
+            turtle.color(colours[k])
+            turtle.begin_fill()
+            turtle.goto(obj.x, obj.y)
+            turtle.pendown()
+            for i in range(4):
+                turtle.forward(obj.size)
+                turtle.left(90)
+                k += 1
+            turtle.end_fill()
+            turtle.penup()
+            time.sleep(3)
+            turtle.clear()
