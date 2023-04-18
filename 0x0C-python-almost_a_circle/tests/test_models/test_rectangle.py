@@ -259,6 +259,23 @@ class Test_rectangle(unittest.TestCase):
             for rect1, rect2 in zip(list_rectangles_input, list_rectangles_output):
                 self.assertNotEqual(id(rect1), id(rect2))
 
+    def test_rectangle27(self):
+        """ Correction test case """
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            Rectangle.save_to_file(None)
+            output = Rectangle.load_from_file()
+            print(len(output))
+            self.assertEqual(fake_output.getvalue(),"0\n")
+
+    def test_rectangle28(self):
+        """ Correction test case """
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            Rectangle.save_to_file([])
+            output = Rectangle.load_from_file()
+            print(len(output))
+            self.assertEqual(fake_output.getvalue(),"0\n")
+
+
     def test_28rectangle(self):
         """ 29th test case """
         with patch('sys.stdout', new=StringIO()) as fake_output:
