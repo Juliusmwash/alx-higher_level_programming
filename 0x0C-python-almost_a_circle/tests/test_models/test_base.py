@@ -26,8 +26,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_4base(self):
         """ Fifth test case """
-        a = Base()
-        obj = a.from_json_string('[{ "id": 89 }]')
+        obj = Base.from_json_string('[{ "id": 89 }]')
         with patch('sys.stdout', new=StringIO()) as fake_output:
             print(type(obj))
             output = "<class 'list'>\n"
