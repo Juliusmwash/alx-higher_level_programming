@@ -281,8 +281,11 @@ class Test_rectangle(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as fake_output:
             Rectangle.save_to_file([Rectangle(1, 2)])
             output = Rectangle.load_from_file()
-            print(len(output))
-            self.assertEqual(fake_output.getvalue(),"1\n")
+            print(type(output))
+            self.assertEqual(fake_output.getvalue(),"<class 'list'>\n")
+            obj = output[0]
+            print(type(obj))
+            self.assertEqual(fake_output.getvalue(), "<class 'list'>\n<class 'models.rectangle.Rectangle'>\n")
 
     def test_rectangle30(self):
         """ Correction test case """
