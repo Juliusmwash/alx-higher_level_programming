@@ -2,6 +2,7 @@
 """ Defines class 'Base' """
 import json
 import csv
+import time
 
 
 class Base:
@@ -115,7 +116,7 @@ class Base:
             return []
 
     def draw(list_rectangles, list_squares):
-        """ 
+        """
         Draws the given rectangle and square objects.
         Please import time, to enjoy the scene.
         """
