@@ -161,3 +161,10 @@ class Square_testing(unittest.TestCase):
         self.assertNotEqual(list_squares_input, list_squares_output)
         for squr1, squr2 in zip(list_squares_input, list_squares_output):
             self.assertNotEqual(id(squr1), id(squr2))
+
+    def test_8square(self):
+        """ Eighth test case """
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(Square(1))
+            output = '[Square] (38) 0/0 - 1\n'
+            self.assertEqual(fake_output.getvalue(),output)
