@@ -168,3 +168,15 @@ class Square_testing(unittest.TestCase):
             print(Square(1))
             output = '[Square] (38) 0/0 - 1\n'
             self.assertEqual(fake_output.getvalue(),output)
+
+    def test_9square(self):
+        """ Nineth test case """
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            with self.assertRaises(TypeError):
+                a = Square(1, "5")
+
+    def test_10square(self):
+        """ Tenth test case """
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            with self.assertRaises(TypeError):
+                a = Square(1, 5, "7")
