@@ -68,6 +68,16 @@ class Test_rectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             r12 = Rectangle(2, 0, 3, 8)
 
+    def test_rectangle12(self):
+        """ Correction test case """
+        with self.assertRaises(ValueError):
+            r12c = Rectangle(-1, 3)
+
+    def test_rectangle13(self):
+        """ Correction test case """
+        with self.assertRaises(ValueError):
+            r13c = Rectangle(2, -6)
+
     def test_13rectangle(self):
         """ 13th test case """
         with self.assertRaises(ValueError):
