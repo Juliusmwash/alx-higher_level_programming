@@ -5,6 +5,7 @@ from unittest.mock import patch
 from io import StringIO
 from models.rectangle import Rectangle
 from models.base import Base
+import os
 
 
 class Test_rectangle(unittest.TestCase):
@@ -271,6 +272,23 @@ class Test_rectangle(unittest.TestCase):
         """ Correction test case """
         with patch('sys.stdout', new=StringIO()) as fake_output:
             Rectangle.save_to_file([])
+            output = Rectangle.load_from_file()
+            print(len(output))
+            self.assertEqual(fake_output.getvalue(),"0\n")
+
+    def test_rectangle29(self):
+        """ Correction test case """
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            Rectangle.save_to_file([Rectangle(1, 2)])
+            output = Rectangle.load_from_file()
+            print(len(output))
+            self.assertEqual(fake_output.getvalue(),"1\n")
+
+    def test_rectangle30(self):
+        """ Correction test case """
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            if os.path.exists("Rectangle.json"):
+                os.remove("Rectangle.json")
             output = Rectangle.load_from_file()
             print(len(output))
             self.assertEqual(fake_output.getvalue(),"0\n")
