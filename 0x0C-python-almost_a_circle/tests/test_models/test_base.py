@@ -2,7 +2,8 @@
 """ base.py tests module """
 import unittest
 from models.base import Base
-
+from unittest.mock import patch
+from io import StringIO
 
 class MyTestCase(unittest.TestCase):
     """ class for testcases """
@@ -22,6 +23,15 @@ class MyTestCase(unittest.TestCase):
         """ Fourth test case """
         a = Base()
         self.assertEqual(a.id, 3)
+
+    def test_4base(self):
+        """ Fifth test case """
+        a = Base()
+        obj = a.from_json_string('[{ "id": 89 }]')
+        with patch('sys.stdout', new=StringIO()) as fake_output:
+            print(type(obj))
+            output = "<class 'list'>\n"
+            self.assertEqual(fake_output.getvalue(), output)
 
     def suite(self):
         suite = unittest.TestSuite()
