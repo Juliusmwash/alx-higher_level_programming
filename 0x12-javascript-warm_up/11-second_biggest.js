@@ -12,6 +12,8 @@ if (argsLen === 2 || argsLen === 3) {
     tmpNum = parseInt(numArgs[i]);
     if (tmpNum > bigNum) {
       bigNum = tmpNum;
+    } if (tmpNum < secBigNum) {
+      secBigNum = tmpNum;
     }
   } for (i = 2; i < argsLen; i++) {
     tmpNum = parseInt(numArgs[i]);
