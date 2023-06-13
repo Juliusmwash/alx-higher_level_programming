@@ -8,7 +8,7 @@ if (Number.isNaN(number)) {
   let i = 0; let j = 0;
   while (i < number) {
     while (j < number) {
-      process.stdout.write('#');
+      process.stdout.write('X');
       j++;
     }
     process.stdout.write('\n');
