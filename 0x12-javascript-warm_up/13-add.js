@@ -1,6 +1,5 @@
-function add (num1, num2) {
-  return (num1 + num2);
-}
+#!/usr/bin/node
+const add = (a, b) => a + b;
 module.exports = {
   add
 };
