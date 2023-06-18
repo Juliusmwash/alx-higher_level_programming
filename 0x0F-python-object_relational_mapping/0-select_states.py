@@ -1,34 +1,29 @@
 #!/usr/bin/python3
-"""
-Lists all states from the database hbtn_0e_0_usa
-"""
-import sys
+'''
+lists all states with a name starting with N
+'''
+
 import MySQLdb
+import sys
 
-
-def list_states(username, password, database):
-    """
-    Connect to the MySQL server and retrieves all states
-    in ascending order
-    """
+if __name__ == '__main__':
     db = MySQLdb.connect(
-        host='localhost',
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3],
         port=3306,
-        user=username,
-        passwd=password,
-        db=database
-    )
+        host='localhost')
+
     cursor = db.cursor()
-    query = "SELECT * FROM states ORDER BY id ASC"
-    cursor.execute(query)
+    cursor.execute("SELECT * \
+                    FROM states \
+                    WHERE CONVERT(`name` USING Latin1) \
+                    COLLATE Latin1_General_CS \
+                    LIKE 'N%';")
+
     states = cursor.fetchall()
     for state in states:
         print(state)
     cursor.close()
     db.close()
 
-
-username = sys.argv[1]
-password = sys.argv[2]
-database = sys.argv[3]
-list_states(username, password, database)
