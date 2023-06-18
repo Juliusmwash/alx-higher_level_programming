@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-"""
-Lists all states from the database hbtn_0e_0_usa.
-"""
-import sys
 import MySQLdb
+from sys import argv
+'''
+Lists all states from the database hbtn_0e_0_usa.
+'''
+
 
 if __name__ == "__main__":
     con = MySQLdb.connect(
@@ -16,4 +17,3 @@ if __name__ == "__main__":
         print(i)
     cursor.close()
     db.close()
-
