@@ -4,6 +4,7 @@ Contains the class definition of a State and an instance
 Base = declarative_base()
 """
 import sys
+from model_state import Base, State
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
@@ -33,6 +34,7 @@ create_file = 'mysql://{}:{}@localhost:3306/{}'.format(
         password,
         db_name
         )
+
 engine = create_engine(create_file)
 if __name__ == '__main__':
     Base.metadata.create_all(engine)
