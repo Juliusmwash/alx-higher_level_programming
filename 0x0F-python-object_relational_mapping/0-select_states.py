@@ -8,14 +8,13 @@ and database name.
 import sys
 import MySQLdb
 
-
-def list_states(username, password, database):
+if __name__ == __main__:
     db = MySQLdb.connect(
         host='localhost',
         port=3306,
-        user=username,
-        passwd=password,
-        db=database
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3]
     )
     cursor = db.cursor()
     query = "SELECT * FROM states ORDER BY id ASC"
@@ -25,9 +24,3 @@ def list_states(username, password, database):
         print(state)
     cursor.close()
     db.close()
-
-
-username = sys.argv[1]
-password = sys.argv[2]
-database = sys.argv[3]
-list_states(username, password, database)
