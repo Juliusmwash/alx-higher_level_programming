@@ -34,7 +34,6 @@ create_file = 'mysql://{}:{}@localhost:3306/{}'.format(
         password,
         db_name
         )
-
 engine = create_engine(create_file)
 if __name__ == '__main__':
     Base.metadata.create_all(engine)
