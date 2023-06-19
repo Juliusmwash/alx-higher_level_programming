@@ -33,6 +33,8 @@ def list_cities(username, password, database, state_name):
     cities = [row[0] for row in rows]
     if cities:
         print(', '.join(cities))
+    else:
+        print("")
 
     cursor.close()
     db.close()
