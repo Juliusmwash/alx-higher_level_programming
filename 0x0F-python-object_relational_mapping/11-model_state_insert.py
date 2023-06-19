@@ -22,11 +22,11 @@ if __name__ == "__main__":
         pool_pre_ping=True
     )
 
-    Session = sessionmaker(bind=engine)
-    session = Session()
+    Base.metadata.create_all(engine)
 
-    new_state = State(name="Louisiana")
+    session = Session(engine)
+    new_state = State(name='Louisiana')
     session.add(new_state)
     session.commit()
-
     print(new_state.id)
+    session.close()
