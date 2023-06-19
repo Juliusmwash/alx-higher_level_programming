@@ -20,11 +20,15 @@ def search_states(username, password, database, state_name):
             db=database
             )
     cursor = db.cursor()
+
+    # Protection against sql code injection --
     query = (
             "SELECT * FROM states WHERE name "
             "= %s ORDER BY id ASC"
             )
     cursor.execute(query, (state_name,))
+    # -- Upto here
+
     rows = cursor.fetchall()
     for row in rows:
         print(row)
