@@ -1,38 +1,17 @@
 #!/usr/bin/python3
 """
-Contains the class definition of a State and an instance
-Base = declarative_base()
+Start link class to table in database 
 """
 import sys
-from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import create_engine
+from model_state import Base, State
+from sqlalchemy import (create_engine)
 
-Base = declarative_base()
-
-
-class State(Base):
-    """
-    State class which inherits from Base class
-    """
-    __tablename__ = 'states'
-
-    id = Column(
-        Integer,
-        primary_key=True,
-        autoincrement=True,
-        nullable=False
-    )
-    name = Column(String(128), nullable=False)
-
-username = sys.argv[1]
-password = sys.argv[2]
-db_name = sys.argv[3]
-create_file = 'mysql://{}:{}@localhost:3306/{}'.format(
-        username,
-        password,
-        db_name
-        )
-engine = create_engine(create_file)
-if __name__ == '__main__':
+if __name__ == "__main__":
+    data_file = 'mysql+mysqldb://{}:{}@localhost/{}'.format(
+            sys.argv[1],
+            sys.argv[2],
+            sys.argv[3],
+            pool_pre_ping=True
+            )
+    engine = create_engine(data_file)
     Base.metadata.create_all(engine)
