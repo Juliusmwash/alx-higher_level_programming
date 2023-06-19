@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-Script that adds the State object "Louisiana" to
-the database hbtn_0e_6_usa
+Script that adds the State object "Louisiana" to the database hbtn_0e_6_usa
 """
 import sys
 from sqlalchemy import create_engine
@@ -14,10 +13,12 @@ if __name__ == "__main__":
     db_name = sys.argv[3]
 
     engine = create_engine(
-            f"mysql+mysqldb://{username}:"
-            "{password}@localhost:3306/{db_name}",
-            pool_pre_ping=True
-            )
+    "mysql+mysqldb://{0}:{1}@localhost:3306/{2}".format(
+        username,
+        password,
+        db_name
+        ), pool_pre_ping=True
+    )
 
     Session = sessionmaker(bind=engine)
     session = Session()
