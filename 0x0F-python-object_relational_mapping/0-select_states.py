@@ -5,8 +5,9 @@ import MySQLdb
 from sys import argv
 
 '''
-Lists all states from the database
-hbtn_0e_0_usa
+Lists all states from the database hbtn_0e_0_usa
+It should take 3 arguments: mysql username,
+mysql password and database name.
 '''
 if __name__ == "__main__":
     con = MySQLdb.connect(
