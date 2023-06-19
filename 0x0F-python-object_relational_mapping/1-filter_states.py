@@ -28,12 +28,14 @@ def get_states_starting_with_N(username, password, database):
             host='localhost'
             )
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
+    cursor.execute("SELECT * FROM states WHERE \
+name LIKE BINARY 'N%' ORDER BY id ASC")
     rows = cursor.fetchall()
     for row in rows:
         print(row)
     cursor.close()
     db.close()
+
 
 if __name__ == "__main__":
     username = sys.argv[1]
