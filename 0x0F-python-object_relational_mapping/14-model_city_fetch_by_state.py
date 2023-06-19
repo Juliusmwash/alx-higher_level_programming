@@ -18,9 +18,9 @@ if __name__ == "__main__":
     engine = create_engine(
         'mysql+mysqldb://{0}:{1}@localhost:3306/{2}'
         .format(
-            username=username,
-            password=password,
-            database=database
+            username,
+            password,
+            database
             )
         )
 
