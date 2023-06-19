@@ -9,13 +9,14 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
+
 def delete_states_with_a(username, password, database):
     """
     class which performs the deletion
     """
     connection_string = ("mysql+mysqldb://{user}:"
                          "{password}@localhost:3306/{db}"
-                    )
+                         )
     engine = create_engine(
         connection_string.format(
             user=username,
@@ -30,6 +31,7 @@ def delete_states_with_a(username, password, database):
     for state in states_with_a:
         session.delete(state)
     session.commit()
+
 
 if __name__ == '__main__':
     username = sys.argv[1]
