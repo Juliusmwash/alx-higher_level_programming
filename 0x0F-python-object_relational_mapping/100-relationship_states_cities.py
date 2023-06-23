@@ -9,27 +9,27 @@ from sqlalchemy.orm import sessionmaker
 from relationship_state import Base, State
 from relationship_city import City
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+    # Get the MySQL username, password, and database name from command-line arguments
     username = sys.argv[1]
     password = sys.argv[2]
-    database = sys.argv[3]
+    dbname = sys.argv[3]
 
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-                           .format(
-                               username,
-                               password,
-                               database),
-                           pool_pre_ping=True)
+    # Create the connection string for the MySQL server
+    connection_string = f"mysql+mysqldb://{username}:{password}@localhost:3306/{dbname}"
 
+    # Create the engine and session
+    engine = create_engine(connection_string, pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    Base.metadata.create_all(engine)
+    # Create the State "California"
+    california = State(name="California")
+    city = City(name="San Francisco")
+    california.cities.append(city)
 
-    california = State(name='California')
-    san_francisco = City(name='San Francisco', state=california)
-
+    # Add the State and City objects to the session and commit
     session.add(california)
-    session.add(san_francisco)
+    session.add(city)
     session.commit()
-    session.close()
+
