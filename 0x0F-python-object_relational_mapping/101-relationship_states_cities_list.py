@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """Script to list State and City objects from the hbtn_0e_101_usa database"""
 
 import sys
@@ -25,15 +25,24 @@ if __name__ == "__main__":
 
     # Create the engine and session
     engine = create_engine(url)
+    Base.metadata.bind = engine
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # Query all cities and their associated states, sorted by states.id and cities.id
-    cities = session.query(City).join(City.state).order_by(State.id, City.id).all()
+    # Create the cities relationship for all State objects
+    states = session.query(State).order_by(State.id).all()
+    for state in states:
+        state.cities = session.query(City).filter(City.state_id == state.id).order_by(City.id).all()
+
+    # Commit the changes to the session
+    session.commit()
+
+    # Query all states and their associated cities using the cities relationship
+    states = session.query(State).order_by(State.id).all()
 
     # Print the states and cities
-    for city in cities:
-        state = city.state
+    for state in states:
         print("{}: {}".format(state.id, state.name))
-        print("\t{}: {}".format(city.id, city.name))
+        for city in state.cities:
+            print("\t{}: {}".format(city.id, city.name))
 
