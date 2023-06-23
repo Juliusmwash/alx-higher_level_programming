@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """Script to list State and City objects from the hbtn_0e_101_usa database"""
 
 import sys
