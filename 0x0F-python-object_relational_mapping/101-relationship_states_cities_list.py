@@ -33,6 +33,7 @@ if __name__ == "__main__":
     states = session.query(State).order_by(State.id).all()
     for state in states:
         state.cities = session.query(City).filter(City.state_id == state.id).order_by(City.id).all()
+        session.add(state)
 
     # Commit the changes to the session
     session.commit()
