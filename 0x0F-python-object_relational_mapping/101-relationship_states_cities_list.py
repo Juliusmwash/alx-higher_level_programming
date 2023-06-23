@@ -1,8 +1,6 @@
-#!/usr/bin/python3
-"""
-Lists all State objects, and corresponding City objects,
-contained in the database hbtn_0e_101_usa
-"""
+#!/usr/bin/env python3
+"""Script to list State and City objects from the hbtn_0e_101_usa database"""
+
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -12,7 +10,7 @@ from relationship_city import City
 if __name__ == "__main__":
     # Check if all arguments are provided
     if len(sys.argv) != 4:
-        print("Usage: python3 list_cities.py [mysql username] [mysql password] [database name]")
+        print("Usage: python3 list_states_cities.py [mysql username] [mysql password] [database name]")
         sys.exit(1)
 
     # Get MySQL connection details from arguments
@@ -30,12 +28,12 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # Retrieve all states with cities
-    states = session.query(State).order_by(State.id).all()
+    # Query all cities and their associated states, sorted by states.id and cities.id
+    cities = session.query(City).join(City.state).order_by(State.id, City.id).all()
 
     # Print the states and cities
-    for state in states:
+    for city in cities:
+        state = city.state
         print("{}: {}".format(state.id, state.name))
-        for city in state.cities:
-            print("\t{}: {}".format(city.id, city.name))
+        print("\t{}: {}".format(city.id, city.name))
 
