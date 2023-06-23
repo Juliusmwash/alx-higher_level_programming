@@ -26,4 +26,3 @@ class City(Base):
         nullable=False
     )
     state = relationship("State", back_populates="cities")
-
