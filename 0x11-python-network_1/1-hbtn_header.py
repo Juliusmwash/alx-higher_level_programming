@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """
-Takes in a URL, sends a request to the URL and displays
-the value of the X-Request-Id variable found in the
-header of the response.
+Takes in a URL, sends a request to the URL, and displays the value of the X-Request-Id variable found in the header of the response.
 """
 import urllib.request
 import sys
@@ -10,7 +8,5 @@ import sys
 url = sys.argv[1]
 
 with urllib.request.urlopen(url) as response:
-    headers = response.headers
-    request_id = headers.get("X-Request-Id")
-
-print(request_id)
+    x_request_id = response.headers.get("X-Request-Id")
+    print(x_request_id)
