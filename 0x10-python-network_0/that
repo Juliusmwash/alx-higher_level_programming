@@ -1,0 +1,152 @@
+Script started on 2023-06-29 19:07:11-07:00 [TERM="xterm" TTY="/dev/pts/0" COLUMNS="59" LINES="26"]
+# clear
+[H[2J[3J# ls
+0-body_size.sh	README.md  that
+# gi  clear
+[H[2J[3J# ls
+0-body_size.sh	README.md  that
+# git add 0-body_size.sh
+# git commit -m 'Solve task p 0                           git add .
+# git commit -m 'Solve task p 0, add readme.md file'
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'root@eb43f93ba30d.(none)')
+# git com nfig --global user.email "cutejuliusmwash@h gmail.com"
+# git cong fig --globl al user.name "Juliusmwass"
+# git     git commit -m 'Solve task 0, add readme.md file'
+[main 8ba78d9] Solve task 0, add readme.md file
+ 3 files changed, 26 insertions(+)
+ create mode 100755 0x10-python-network_0/0-body_size.sh
+ create mode 100644 0x10-python-network_0/README.md
+ create mode 100644 0x10-python-network_0/that
+# git push
+Enumerating objects: 6, done.
+Counting objects:  16% (1/6)Counting objects:  33% (2/6)Counting objects:  50% (3/6)Counting objects:  66% (4/6)Counting objects:  83% (5/6)Counting objects: 100% (6/6)Counting objects: 100% (6/6), done.
+Delta compression using up to 2 threads
+Compressing objects:  25% (1/4)Compressing objects:  50% (2/4)Compressing objects:  75% (3/4)Compressing objects: 100% (4/4)Compressing objects: 100% (4/4), done.
+Writing objects:  20% (1/5)Writing objects:  40% (2/5)Writing objects:  60% (3/5)Writing objects:  80% (4/5)Writing objects: 100% (5/5)Writing objects: 100% (5/5), 764 bytes | 764.00 KiB/s, done.
+Total 5 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/1)[Kremote: Resolving deltas: 100% (1/1)[Kremote: Resolving deltas: 100% (1/1), completed with 1 local object.[K
+To https://github.com/Juliusmwash/alx-higher_level_programming.git
+   773df72..8ba78d9  main -> main
+# ls
+0-body_size.sh	README.md  that
+# clear
+[H[2J[3J# shellcheck 0-body_size.sh
+# ls
+0-body_size.sh	README.md  that
+# vi    cp 0-body_size.sh
+cp: missing destination file operand after '0-body_size.sh'
+Try 'cp --help' for more information.
+# cp 0-body_size.sh 0-body_size.sh.bkp
+# clear
+[H[2J[3J# vi 0-body_size.sh
+[?1049h[22;0;0t[>4;2m[?1h=[?2004h[1;26r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[26;1H"0-body_size.sh" 25L, 598C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[34m#!/bin/bash
+# This script takes in a URL, sends a request to that URL,
+#+      and displays the size of the body of the response
+
+# Check if a URL is provided as an argument[m
+[33mif [[m [35m$#[m [33m-eq[m [31m0[m [33m];[m [33mthen
+[m  [33mecho[m[31m [m[33m"[m[31mUsage: [m[35m$0[m[31m <URL>[m[33m"
+[m  [33mexit[m [31m1[m
+[33mfi[m
+
+[34m# Store the URL argument[m
+[36murl[m=[35m$1[m
+
+[34m# Send the request and retrieve the response body[m
+[36mresponse[m=[35m$([m[35mcurl -sI [m[33m"[m[35m$url[m[33m"[m[35m [m[33m|[m[35m [m[33mgrep[m[35m -i Content-Length [m[33m|[m[35m awk [m[33m''[m[16;1H[31m{print $2}[m[33m'[m[35m [m[33m|[m[35m tr -d [m[33m'[m[31m\r[m[33m'[m[35m)[m
+
+[34m# Check if the response body size is available[m
+[33mif [[m [33m-z[m [33m"[m[35m$response[m[33m"[m [33m];[m [33mthen
+[m  [33mecho[m[31m [m[33m"[m[31mUnable to retrieve the response body size.[m[33m"
+[m  [33mexit[m [31m1[m
+[33mfi[m
+
+[34m# Display the response body size in bytes[m
+[33mecho[m[31m [m[33m"[m[35m$response[m[33m"[m[26;42H3,3-8[9CTop[3;8H[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\P$q q\[?12$p[27m[23m[29m[m[H[2J[?25l[1;1H[1m[36m#!/bin/bash
+# This script takes in a URL, sends a request to that URL,
+#+      and displays the size of the body of the response
+
+# Check if a URL is provided as an argument[m
+[1m[33mif [[m [1m[34m$#[m [1m[33m-eq[m [1m[35m0[m [1m[33m];[m [1m[33mthen
+[m  [1m[33mecho[m[1m[35m [m[1m[33m"[m[1m[35mUsage: [m[1m[34m$0[m[1m[35m <URL>[m[1m[33m"
+[m  [1m[33mexit[m [1m[35m1[m
+[1m[33mfi[m
+
+[1m[36m# Store the URL argument[m
+[1m[36murl[m=[1m[34m$1[m
+
+[1m[36m# Send the request and retrieve the response body[m
+[1m[36mresponse[m=[1m[34m$([m[1m[31mcurl -sI [m[1m[33m"[m[1m[34m$url[m[1m[33m"[m[1m[31m [m[1m[33m|[m[1m[31m [m[1m[33mgrep[m[1m[31m -i Content-Length [m[1m[33m|[m[1m[31m awk [m[1m[33m''[m[16;1H[1m[35m{print $2}[m[1m[33m'[m[1m[31m [m[1m[33m|[m[1m[31m tr -d [m[1m[33m'[m[1m[35m\r[m[1m[33m'[m[1m[34m)[m
+
+[1m[36m# Check if the response body size is available[m
+[1m[33mif [[m [1m[33m-z[m [1m[33m"[m[1m[34m$response[m[1m[33m"[m [1m[33m];[m [1m[33mthen
+[m  [1m[33mecho[m[1m[35m [m[1m[33m"[m[1m[35mUnable to retrieve the response body size.[m[1m[33m"
+[m  [1m[33mexit[m [1m[35m1[m
+[1m[33mfi[m
+
+[1m[36m# Display the response body size in bytes[m
+[1m[33mecho[m[1m[35m [m[1m[33m"[m[1m[34m$response[m[1m[33m"[m[26;42H3,3-8[9CTop"0-body_size.sh" 25L, 598C[3;8H[?25h[27m[23m[29m[m[H[2J[?25l[1;1H[96m#!/bin/bash
+# This script takes in a URL, sends a request to that URL,
+#+      and displays the size of the body of the response
+
+# Check if a URL is provided as an argument[m
+[93mif [[m [38;5;81m$#[m [93m-eq[m [95m0[m [93m];[m [93mthen
+[m  [93mecho[m[95m [m[93m"[m[95mUsage: [m[38;5;81m$0[m[95m <URL>[m[93m"
+[m  [93mexit[m [95m1[m
+[93mfi[m
+
+[96m# Store the URL argument[m
+[1m[96murl[m=[38;5;81m$1[m
+
+[96m# Send the request and retrieve the response body[m
+[1m[96mresponse[m=[38;5;81m$([m[38;5;224mcurl -sI [m[93m"[m[38;5;81m$url[m[93m"[m[38;5;224m [m[93m|[m[38;5;224m [m[93mgrep[m[38;5;224m -i Content-Length [m[93m|[m[38;5;224m awk [m[93m''[m[16;1H[95m{print $2}[m[93m'[m[38;5;224m [m[93m|[m[38;5;224m tr -d [m[93m'[m[95m\r[m[93m'[m[38;5;81m)[m
+
+[96m# Check if the response body size is available[m
+[93mif [[m [93m-z[m [93m"[m[38;5;81m$response[m[93m"[m [93m];[m [93mthen
+[m  [93mecho[m[95m [m[93m"[m[95mUnable to retrieve the response body size.[m[93m"
+[m  [93mexit[m [95m1[m
+[93mfi[m
+
+[96m# Display the response body size in bytes[m
+[93mecho[m[95m [m[93m"[m[38;5;81m$response[m[93m"[m[26;42H3,3-8[9CTop"0-body_size.sh" 25L, 598C[3;8HP+q6b32\P+q6b33\P+q6b34\[26;32H7[3;8H[26;33H2[3;8H[26;34H=[3;8H[26;35H1[3;8H[26;36HB[3;8H[26;37H4[3;8H[26;38HF[3;8H[26;39H4[3;8H[26;40H3[3;8H[26;32H2=1B4F43^[[3;8H[26;32H          [3;8HP+q6b35\P+q6b36\P+q6b37\[26;32H^[[3;8H[26;34HP[3;8H[26;35H1[3;8H[26;36H+[3;8H[26;32H     [3;8HP+q6b38\P+q6b39\[26;32H1[3;8H[26;33H+[3;8H[26;34Hr[3;8H[26;35H2[3;8H[26;36Ha[3;8H[26;37H3[3;8H[26;38H7[3;8H[26;39H=[3;8H[26;40H1[3;8H[26;41HB[3;8H[26;32H          [3;8HP+q6b3b\P+q4631\[?25hP+q4632\P+q2531\P+q2638\[?25l[26;32Hr[3;8H[26;33H6[3;8H[26;34Hb[3;8H[26;35H3[3;8H[26;36H5[3;8H[26;37H=[3;8H[26;38H1[3;8H[26;39HB[3;8H[26;40H5[3;8H[26;41HB[3;8H[26;32H          [3;8HP+q6b62\[?25hP+q6b49\P+q6b44\[?25l[26;32H1[3;8H[26;33HB[3;8H[26;34H5[3;8H[26;35HB[3;8H[26;36H3[3;8H[26;37H1[3;8H[26;38H3[3;8H[26;39H9[3;8H[26;40H7[3;8H[26;41HE[3;8H[26;32H          [3;8HP+q6b68\P+q4037\P+q6b50\[26;32H1[3;8H[26;33H=[3;8H[26;34H1[3;8H[26;35HB[3;8H[26;36H5[3;8H[26;37HB[3;8H[26;38H3[3;8H[26;39H2[3;8H[26;40H3[3;8H[26;41H3[3;8H[26;32H          [3;8HP+q6b4e\[?25hP+q4b31\P+q4b33\P+q4b34\P+q4b35\P+q6b42\[?25l[26;32H^[[3;8H[26;34HP[3;8H[26;35H1[3;8H[26;36H+[3;8H[26;37Hr[3;8H[26;38H4[3;8H[26;39H0[3;8H[26;40H3[3;8H[26;32H         [3;8H[?25h[?25l[26;32Hr[3;8H[26;33H4[3;8H[26;34Hb[3;8H[26;35H3[3;8H[26;36H4[3;8H[26;37H=[3;8H[26;38H1[3;8H[26;39HB[3;8H[26;40H4[3;8H[26;41HF[3;8H[26;32H          [3;8H[?25h[?25l[26;32H~@k[3;8H[26;32H   [4;1H[26;42H[K[26;42H4,0-1[9CTop[4;1H[?25h[?25l[26;32H~@k[4;1H[26;32H   [5;1H[26;42H5,1  [5;1H[?25h[?25l[26;32Hd[5;1H[?25h[?25l[26;33Hd[5;1H[26;32H  [5;1H[5;25r[25;1H
+[1;26r[26;1H[K[26;42H5,1[11CAll[5;1H[?25h[?25l[26;32Hd[5;1H[?25h[?25l[26;33Hd[5;1H[26;32H  [5;3H[5;25r[25;1H
+[1;26r[7;1H[97m[101mfi[m[25;1H[94m~                                                          [m[26;42H[K[26;42H5,3[11CAll[5;3H[?25h[?25l[26;32Hd[5;3H[?25h[?25l[26;33Hd[5;3H[26;32H  [5;3H[5;25r[25;1H
+[1;26r[25;1H[94m~                                                          [m[26;42H[K[26;42H5,3[11CAll[5;3H[?25h[?25l[26;32Hd[5;3H[?25h[?25l[26;33Hf[5;3H[?25h[?25l[26;34Hf[5;3H[26;32H   [5;3H[?25h[?25l[26;32Hf[5;3H[?25h[?25l[26;33Hf[5;3H[26;32H  [5;3H[?25h[?25l[26;32Hf[5;3H[?25h[?25l[26;33Hd[5;3H[26;32H  [5;3H[?25h[?25l[26;32Hd[5;3H[?25h[?25l[26;33Hd[5;3H[26;32H  [5;1H[5;25r[25;1H
+[1;26r[25;1H[94m~                                                          [m[26;42H[K[26;42H5,1[11CAll[5;1H[?25h[?25l[26;32Hd[5;1H[?25h[?25l[26;33Hd[5;1H[26;32H  [5;1H[5;25r[25;1H
+[1;26r[25;1H[94m~                                                          [m[26;42H[K[26;42H5,0-1[9CAll[5;1H[?25h[?25l[26;32Hd[5;1H[?25h[?25l[26;33Hd[5;1H[26;32H  [5;1H[5;25r[25;1H
+[1;26r[25;1H[94m~                                                          [m[26;42H[K[26;42H5,1[11CAll[5;1H[?25h[?25l[26;32Hd[5;1H[?25h[?25l[26;33Hd[5;1H[26;32H  [5;1H[5;25r[25;1H
+[1;26r[25;1H[94m~                                                          [m[26;42H[K[26;42H5,1[11CAll[5;1H[?25h[?25l[26;32Hd[5;1H[?25h[?25l[26;33H~@k[5;1H[26;32H    [5;1H[5;25r[5;1H[2M[1;26r[24;1H[94m~                                                          [25;1H~                                                          [m[26;42H[K[26;42H5,1[11CAll[5;1H[?25h[?25l[26;32H~@k[5;1H[26;32H   [6;1H[26;42H6[6;1H[?25h[?25l[26;32H~@k[6;1H[26;32H   [6;2H[26;44H2[6;2H[?25h[?25l[26;32H~@k[6;2H[26;32H   [6;3H[26;44H3[6;3H[?25h[?25l[26;32H~@k[6;3H[26;32H   [6;4H[26;44H4[6;4H[?25h[?25l[26;32H~@k[6;4H[26;32H   [6;5H[26;44H5[6;5H[?25h[?25l[26;32H~@k[6;5H[26;32H   [6;6H[26;44H6[6;6H[?25h[?25l[26;32H~@k[6;6H[26;32H   [6;7H[26;44H7[6;7H[?25h[?25l[26;32H~@k[6;7H[26;32H   [6;8H[26;44H8[6;8H[?25h[?25l[26;32H~@k[6;8H[26;32H   [6;9H[26;44H9[6;9H[?25h[?25l[26;32H~@k[6;9H[26;32H   [6;10H[26;44H10[6;10H[?25h[?25l[26;32H~@k[6;10H[26;32H   [6;11H[38;5;81m[46m([m[47C[93m''[m[7;1H[95m{[m[23C[38;5;81m[46m)[m[26;45H1[6;11H[?25h[?25l[26;32H~@k[6;11H[26;32H   [6;12H[38;5;81m([m[47C[93m''[m[7;1H[95m{[m[23C[38;5;81m)[m[26;45H2[6;12H[?25h[?25l[26;32H~@k[6;12H[26;32H   [6;13H[26;45H3[6;13H[?25h[?25l[26;32H~@k[6;13H[26;32H   [6;14H[26;45H4[6;14H[?25h[?25l[26;32H~@k[6;14H[26;32H   [6;15H[26;45H5[6;15H[?25h[?25l[26;32H~@k[6;15H[26;32H   [6;16H[26;45H6[6;16H[?25h[?25l[26;32H~@k[6;16H[26;32H   [6;17H[26;45H7[6;17H[?25h[?25l[26;32H~@k[6;17H[26;32H   [6;18H[26;45H8[6;18H[?25h[?25l[26;32H~@k[6;18H[26;32H   [6;19H[26;45H9[6;19H[?25h[?25l[26;32H~@k[6;19H[26;32H   [6;20H[26;44H20[6;20H[?25h[?25l[26;32H~@k[6;20H[26;32H   [6;21H[26;45H1[6;21H[?25h[?25l[26;32H~@k[6;21H[26;32H   [6;22H[26;45H2[6;22H[?25h[?25l[26;32H~@k[6;22H[26;32H   [6;23H[26;45H3[6;23H[?25h[?25l[26;32H~@k[6;23H[26;32H   [6;24H[26;45H4[6;24H[?25h[?25l[26;32H~@k[6;24H[26;32H   [6;25H[26;45H5[6;25H[?25h[?25l[26;32H~@k[6;25H[26;32H   [6;26H[26;45H6[6;26H[?25h[?25l[26;32H~@k[6;26H[26;32H   [6;27H[26;45H7[6;27H[?25h[?25l[26;32H~@k[6;27H[26;32H   [6;26H[26;45H6[6;26H[?25h[?25l[26;32H~@k[6;26H[26;32H   [6;25H[26;45H5[6;25H[?25h[?25l[26;32H~@k[6;25H[26;32H   [6;26H[26;45H6[6;26H[?25h[?25l[26;32H~@k[6;26H[26;32H   [6;25H[26;45H5[6;25H[?25h[?25l[26;32H~@k[6;25H[26;32H   [6;24H[26;45H4[6;24H[?25h[?25l[26;32H~@k[6;24H[26;32H   [6;23H[26;45H3[6;23H[?25h[?25l[26;32H~@k[6;23H[26;32H   [6;24H[26;45H4[6;24H[?25h[?25l[26;32H~@k[6;24H[26;32H   [6;25H[26;45H5[6;25H[?25h[?25l[26;32H~@k[6;25H[26;32H   [6;26H[26;45H6[6;26H[?25h[?25l[26;32Hi[6;26H[26;32H [6;26H[26;1H[1m-- INSERT --[m[26;42H[K[26;42H6,26[10CAll[6;26H[?25h[?25l[93m"[m[38;5;224m [m[93m|[m[38;5;224m [m[93mgrep[m[38;5;224m -i Content-Length [m[93m|[m[38;5;224m awk [m[93m'[m[95m{{[7;1Hprint $2}[m[93m'[m[38;5;224m [m[93m|[m[38;5;224m tr -d [m[93m'[m[95m\r[m[93m'[m[38;5;81m)[m[7;25H[K[26;45H5[6;25H[?25h[?25l[93m"[m[38;5;224m [m[93m|[m[38;5;224m [m[93mgrep[m[38;5;224m -i Content-Length [m[93m|[m[38;5;224m awk [m[93m'[m[95m{pp[7;1Hrint $2}[m[93m'[m[38;5;224m [m[93m|[m[38;5;224m tr -d [m[93m'[m[95m\r[m[93m'[m[38;5;81m)[m[7;24H[K[26;45H4[6;24H[?25h[?25l[95m$[m[93m"[m[38;5;224m [m[93m|[m[38;5;224m [m[93mgrep[m[38;5;224m -i Content-Length [m[93m|[m[38;5;224m awk [m[93m'[m[95m{prr[7;1Hint $2}[m[93m'[m[38;5;224m [m[93m|[m[38;5;224m tr -d [m[93m'[m[95m\r[m[93m'[m[38;5;81m)[m[7;23H[K[26;45H3[6;23H[?25h[?25l[38;5;81m$1[m[93m"[m[38;5;224m [m[93m|[m[38;5;224m [m[93mgrep[m[38;5;224m -i Content-Length [m[93m|[m[38;5;224m awk [m[93m'[m[95m{pp[7;1Hrint $2}[m[93m'[m[38;5;224m [m[93m|[m[38;5;224m tr -d [m[93m'[m[95m\r[m[93m'[m[38;5;81m)[m[26;45H4[6;24H[?25h[?25l[26;45H3[6;23H[?25h[?25l[26;45H2[6;22H[?25h[?25l[26;45H1[6;21H[?25h[?25l[26;45H0[6;20H[?25h[?25l[26;44H19[6;19H[?25h[?25l[26;45H8[6;18H[?25h[?25l[26;45H7[6;17H[?25h[?25l[26;45H6[6;16H[?25h[?25l[26;45H5[6;15H[?25h[?25l[26;45H4[6;14H[?25h[?25l[26;45H3[6;13H[?25h[?25l[38;5;81m[46m([m[47C[95mpp[7;1Hr[m[21C[38;5;81m[46m)[m[26;45H2[6;12H[?25h[?25l[47C[95mpp[7;1Hr[m[26;45H1[6;11H[?25h[?25l[38;5;81m([m[47C[95mpp[7;1Hr[m[21C[38;5;81m)[m[26;45H0[6;10H[?25h[?25li[38;5;81m$([m[38;5;224mcurl -sI [m[93m"[m[38;5;81m$1[m[93m"[m[38;5;224m [m[93m|[m[38;5;224m [m[93mgrep[m[38;5;224m -i Content-Length [m[93m|[m[38;5;224m awk [m[93m'[m[95m{{[7;1Hprint $2}[m[93m'[m[38;5;224m [m[93m|[m[38;5;224m tr -d [m[93m'[m[95m\r[m[93m'[m[38;5;81m)[m[26;45H1[6;11H[?25h[?25l[38;5;81m$([m[38;5;224mcurl -sI [m[93m"[m[38;5;81m$1[m[93m"[m[38;5;224m [m[93m|[m[38;5;224m [m[93mgrep[m[38;5;224m -i Content-Length [m[93m|[m[38;5;224m awk [m[93m'[m[95m{pp[7;1Hrint $2}[m[93m'[m[38;5;224m [m[93m|[m[38;5;224m tr -d [m[93m'[m[95m\r[m[93m'[m[38;5;81m)[m[7;24H[K[26;45H0[6;10H[?25h[?25lresponse[38;5;81m$([m[38;5;224mcurl -sI [m[93m"[m[38;5;81m$1[m[93m"[m[38;5;224m [m[93m|[m[38;5;224m [m[93mgrep[m[38;5;224m -i Content-Length [m[93m|[m[38;5;224m awk [m[93m'[m[95m{prr[7;1Hint $2}[m[93m'[m[38;5;224m [m[93m|[m[38;5;224m tr -d [m[93m'[m[95m\r[m[93m'[m[38;5;81m)[m[7;23H[K[26;44H9 [6;9H[?25h[?25l[38;5;81m$([m[38;5;224mcurl -sI [m[93m"[m[38;5;81m$1[m[93m"[m[38;5;224m [m[93m|[m[38;5;224m [m[93mgrep[m[38;5;224m -i Content-Length [m[93m|[m[38;5;224m awk [m[93m'[m[95m{prii[7;1Hnt $2}[m[93m'[m[38;5;224m [m[93m|[m[38;5;224m tr -d [m[93m'[m[95m\r[m[93m'[m[38;5;81m)[m[7;22H[K[26;44H8[6;8H[?25h[?25l[38;5;81m$([m[38;5;224mcurl -sI [m[93m"[m[38;5;81m$1[m[93m"[m[38;5;224m [m[93m|[m[38;5;224m [m[93mgrep[m[38;5;224m -i Content-Length [m[93m|[m[38;5;224m awk [m[93m'[m[95m{prinn[7;1Ht $2}[m[93m'[m[38;5;224m [m[93m|[m[38;5;224m tr -d [m[93m'[m[95m\r[m[93m'[m[38;5;81m)[m[7;21H[K[26;44H7[6;7H[?25h[?25l[38;5;81m$([m[38;5;224mcurl -sI [m[93m"[m[38;5;81m$1[m[93m"[m[38;5;224m [m[93m|[m[38;5;224m [m[93mgrep[m[38;5;224m -i Content-Length [m[93m|[m[38;5;224m awk [m[93m'[m[95m{printt[7;1H $2}[m[93m'[m[38;5;224m [m[93m|[m[38;5;224m tr -d [m[93m'[m[95m\r[m[93m'[m[38;5;81m)[m[7;20H[K[26;44H6[6;6H[?25h[?25l[38;5;81m$([m[38;5;224mcurl -sI [m[93m"[m[38;5;81m$1[m[93m"[m[38;5;224m [m[93m|[m[38;5;224m [m[93mgrep[m[38;5;224m -i Content-Length [m[93m|[m[38;5;224m awk [m[93m'[m[95m{print  [7;1H$2}[m[93m'[m[38;5;224m [m[93m|[m[38;5;224m tr -d [m[93m'[m[95m\r[m[93m'[m[38;5;81m)[m[7;19H[K[26;44H5[6;5H[?25h[?25l[38;5;81m$([m[38;5;224mcurl -sI [m[93m"[m[38;5;81m$1[m[93m"[m[38;5;224m [m[93m|[m[38;5;224m [m[93mgrep[m[38;5;224m -i Content-Length [m[93m|[m[38;5;224m awk [m[93m'[m[95m{print $$[7;1H2}[m[93m'[m[38;5;224m [m[93m|[m[38;5;224m tr -d [m[93m'[m[95m\r[m[93m'[m[38;5;81m)[m[7;18H[K[26;44H4[6;4H[?25h[?25l[38;5;81m$([m[38;5;224mcurl -sI [m[93m"[m[38;5;81m$1[m[93m"[m[38;5;224m [m[93m|[m[38;5;224m [m[93mgrep[m[38;5;224m -i Content-Length [m[93m|[m[38;5;224m awk [m[93m'[m[95m{print $22[7;1H}[m[93m'[m[38;5;224m [m[93m|[m[38;5;224m tr -d [m[93m'[m[95m\r[m[93m'[m[38;5;81m)[m[7;17H[K[26;44H3[6;3H[?25h[?25l[38;5;81m$([m[38;5;224mcurl -sI [m[93m"[m[38;5;81m$1[m[93m"[m[38;5;224m [m[93m|[m[38;5;224m [m[93mgrep[m[38;5;224m -i Content-Length [m[93m|[m[38;5;224m awk [m[93m'[m[95m{print $2}}[m[7;1H[93m'[m[38;5;224m [m[93m|[m[38;5;224m tr -d [m[93m'[m[95m\r[m[93m'[m[38;5;81m)[m[7;16H[K[26;44H2[6;2H[?25h[?25l[38;5;81m$([m[38;5;224mcurl -sI [m[93m"[m[38;5;81m$1[m[93m"[m[38;5;224m [m[93m|[m[38;5;224m [m[93mgrep[m[38;5;224m -i Content-Length [m[93m|[m[38;5;224m awk [m[93m'[m[95m{print $2}[m[93m''[m[7;1H[38;5;224m [m[93m|[m[38;5;224m tr -d [m[93m'[m[95m\r[m[93m'[m[38;5;81m)[m[7;15H[K[26;44H1[6;1H[?25h[?25le[38;5;81m$([m[38;5;224mcurl -sI [m[93m"[m[38;5;81m$1[m[93m"[m[38;5;224m [m[93m|[m[38;5;224m [m[93mgrep[m[38;5;224m -i Content-Length [m[93m|[m[38;5;224m awk [m[93m'[m[95m{print $2}}[m[7;1H[93m'[m[38;5;224m [m[93m|[m[38;5;224m tr -d [m[93m'[m[95m\r[m[93m'[m[38;5;81m)[m[26;44H2[6;2H[?25h[?25lc[38;5;81m$([m[38;5;224mcurl -sI [m[93m"[m[38;5;81m$1[m[93m"[m[38;5;224m [m[93m|[m[38;5;224m [m[93mgrep[m[38;5;224m -i Content-Length [m[93m|[m[38;5;224m awk [m[93m'[m[95m{print $22[7;1H}[m[93m'[m[38;5;224m [m[93m|[m[38;5;224m tr -d [m[93m'[m[95m\r[m[93m'[m[38;5;81m)[m[26;44H3[6;3H[?25h[?25lh[38;5;81m$([m[38;5;224mcurl -sI [m[93m"[m[38;5;81m$1[m[93m"[m[38;5;224m [m[93m|[m[38;5;224m [m[93mgrep[m[38;5;224m -i Content-Length [m[93m|[m[38;5;224m awk [m[93m'[m[95m{print $$[7;1H2}[m[93m'[m[38;5;224m [m[93m|[m[38;5;224m tr -d [m[93m'[m[95m\r[m[93m'[m[38;5;81m)[m[26;44H4[6;4H[?25h[?25l[93mecho[m[38;5;81m$([m[38;5;224mcurl -sI [m[93m"[m[38;5;81m$1[m[93m"[m[38;5;224m [m[93m|[m[38;5;224m [m[93mgrep[m[38;5;224m -i Content-Length [m[93m|[m[38;5;224m awk [m[93m'[m[95m{print  [7;1H$2}[m[93m'[m[38;5;224m [m[93m|[m[38;5;224m tr -d [m[93m'[m[95m\r[m[93m'[m[38;5;81m)[m[26;44H5[6;5H[?25h[?25l[95m [m[38;5;81m$([m[38;5;224mcurl -sI [m[93m"[m[38;5;81m$1[m[93m"[m[38;5;224m [m[93m|[m[38;5;224m [m[93mgrep[m[38;5;224m -i Content-Length [m[93m|[m[38;5;224m awk [m[93m'[m[95m{printt[7;1H $2}[m[93m'[m[38;5;224m [m[93m|[m[38;5;224m tr -d [m[93m'[m[95m\r[m[93m'[m[38;5;81m)[m[26;44H6[6;6H[?25h[?25l[93m"[m[38;5;81m$([m[38;5;224mcurl -sI [m[93m"[m[38;5;81m$1[m[93m"[m[38;5;224m [m[93m|[m[38;5;224m [m[93mgrep[m[38;5;224m -i Content-Length [m[93m|[m[38;5;224m awk [m[93m'[m[95m{prinn[7;1Ht $2}[m[93m'[m[38;5;224m [m[93m|[m[38;5;224m tr -d [m[93m'[m[95m\r[m[93m'[m[38;5;81m)[m
+
+[95m# Check if the response body size is available
+if [ -z [11C ]; then
+  echo
+  exit 
+fi
+
+# Display the response body size in bytes
+echo[m[26;44H7[6;7H[?25h[?25l[1C[38;5;81m[46m([m[50C[95mnn[7;1Ht[m[18C[38;5;81m[46m)[m[26;44H80[7;21H[?25h[?25l[93m"[m
+
+[96m# Check if the response body size is available[m
+[93mif [[m [93m-z[m [11C [93m];[m [93mthen[m
+  [93mecho[m
+  [93mexit[m 
+[93mfi[m
+
+[96m# Display the response body size in bytes[m
+[93mecho[m[6;8H[38;5;81m([m[50C[95mnn[7;1Ht[m[18C[38;5;81m)[m[26;45H1[7;22H[?25h[26;1H[K[7;21H[?25l[26;32H^[[7;21H[26;32H  [7;22H[26;42H6,80[10CAll[7;21H[?25h[?25l[26;32H~@k[7;21H[26;32H   [8;1H[26;42H7,0-1[8;1H[?25h[?25l[26;32H1[8;1H[?25h[?25l[26;33H0[8;1H[?25h[?25l[26;34H0[8;1H[?25h[?25l[26;35Hd[8;1H[?25h[?25l[26;36Hd[8;1H[26;1H10 fewer lines[26;32H[K[6;1H
+
+[94m~                                                          [9;1H~                                                          [10;1H~                                                          [11;1H~                                                          [12;1H~                                                          [13;1H~                                                          [14;1H~                                                          [15;1H~                                                          [16;1H~                                                          [17;1H~                                                          [m[26;42H6,1[11CAll[26;42H[K[26;42H6,1[11CAll[6;1H[?25h[?25l[26;32H~@k[6;1H[26;32H   [5;1H[26;42H5[5;1H[?25h[?25l[26;32Hi[5;1H[26;32H [5;1H[26;1H[1m-- INSERT --[m[26;13H[K[26;42H5,1[11CAll[5;1H[?25h[26;1H[K[5;1H[?25l[26;32H^[[5;1H[26;32H  [5;1H[26;42H5,1[11CAll[5;1H[?25h[?25l[26;32Hd[5;1H[?25h[?25l[26;33Hd[5;1H[26;32H  [5;1H[5;25r[25;1H
+[1;26r[25;1H[94m~                                                          [m[26;42H[K[26;42H5,1[11CAll[5;1H[?25h[?25l[26;32H~@k[5;1H[26;32H   [4;1H[26;42H4,0-1[4;1H[?25h[?25l[26;32H~@k[4;1H[26;32H   [3;1H[26;42H3,1  [3;1H[?25h[?25l[26;32H~@k[3;1H[26;32H   [4;1H[26;42H4,0-1[4;1H[?25h[?25l[26;32Hd[4;1H[?25h[?25l[26;33Hd[4;1H[26;32H  [4;1H[4;25r[25;1H
+[1;26r[25;1H[94m~                                                          [m[26;42H[K[26;42H4,1[11CAll[4;1H[?25h[?25l[26;32H~@k[4;1H[26;32H   [3;1H[26;42H3[3;1H[?25h[?25l[26;32H~@k[3;1H[26;32H   [2;1H[26;42H2[2;1H[?25h[?25l[26;32Hd[2;1H[?25h[?25l[26;33Hd[2;1H[26;32H  [2;1H[2;25r[25;1H
+[1;26r[25;1H[94m~                                                          [m[26;42H[K[26;42H2,1[11CAll[2;1H[?25h[?25l[26;32H~@k[2;1H[26;32H   [2;2H[26;44H2[2;2H[?25h[?25l[26;32H~@k[2;2H[26;32H   [2;8H[26;44H3-8[2;8H[?25h[?25l[26;32H~@k[2;8H[26;32H   [2;9H[26;44H4-9[2;9H[?25h[?25l[26;32H~@k[2;9H[26;32H   [2;10H[26;44H5-10[2;10H[?25h[?25l[26;32H~@k[2;10H[26;32H   [2;11H[26;44H6-11[2;11H[?25h[?25l[26;32H~@k[2;11H[26;32H   [3;11H[26;42H3,11  [3;11H[?25h[?25l[26;32H~@k[3;11H[26;32H   [3;11H[?25h[?25l[26;32H~@k[3;11H[26;32H   [2;11H[26;42H2,6-11[2;11H[?25h[?25l[26;32H~@k[2;11H[26;32H   [2;10H[26;44H5-10[2;10H[?25h[?25l[26;32H~@k[2;10H[26;32H   [2;9H[26;44H4-9 [2;9H[?25h[?25l[26;32Hi[2;9H[26;32H [2;9H[26;1H[1m-- INSERT --[m[26;42H[K[26;42H2,4-9[9CAll[2;9H[?25h[?25l[2;3H[96mand displays the size of the body of the respons[m[2;52H[K[26;44H3  [2;3H[?25h[?25l[96mand displays the size of the body of the response[m[2;51H[K[26;44H2[2;2H[?25h[?25l[26;44H3[2;3H[?25h[?25l[26;44H4[2;4H[?25h[?25l[26;44H5[2;5H[?25h[?25l[26;44H6[2;6H[?25h[?25l[26;44H7[2;7H[?25h[?25l[96misplays the size of the body of the response[m[2;50H[K[26;44
