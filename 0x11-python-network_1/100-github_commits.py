@@ -3,6 +3,7 @@
 import requests
 import sys
 
+
 def get_commits(repo, owner):
     url = f"https://api.github.com/repos/{owner}/{repo}/commits"
     response = requests.get(url)
@@ -12,6 +13,7 @@ def get_commits(repo, owner):
         sha = commit.get("sha")
         author_name = commit.get("commit", {}).get("author", {}).get("name")
         print(f"{sha}: {author_name}")
+
 
 if __name__ == "__main__":
     repo = sys.argv[1]
