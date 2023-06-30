@@ -21,4 +21,3 @@ def find_peak(list_of_integers):
 
     # The peak element will be at index low
     return list_of_integers[low]
-
