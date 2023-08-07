@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello Translation</title>
+</head>
+<body>
+    <div id="hello">
+        <?php
+            $api_url = "https://fourtonfish.com/hellosalut/?lang=fr";
+            $response = file_get_contents($api_url);
+            $data = json_decode($response);
+            if (isset($data->hello)) {
+                echo $data->hello;
+            } else {
+                echo "Translation not available";
+            }
+        ?>
+    </div>
+</body>
+</html>
+
